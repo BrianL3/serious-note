@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kaw-M7-mSa">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
@@ -7,7 +7,7 @@
         <!--Time Picker View Controller-->
         <scene sceneID="hky-KC-1zh">
             <objects>
-                <viewController id="ofW-FQ-qVb" customClass="TimePickerViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TIME_VC" id="ofW-FQ-qVb" customClass="TimePickerViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L8x-F4-vKj"/>
                         <viewControllerLayoutGuide type="bottom" id="FU3-Uc-AsS"/>
@@ -20,7 +20,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xb3-Rv-8T7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="488" y="-406"/>
+            <point key="canvasLocation" x="1308" y="-278"/>
         </scene>
         <!--Trigger Decision View Controller-->
         <scene sceneID="PbR-vU-EBu">
@@ -33,12 +33,39 @@
                     <view key="view" contentMode="scaleToFill" id="lZh-mx-Dy1">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4H8-3i-zGH">
+                                <rect key="frame" x="250" y="395" width="90" height="30"/>
+                                <state key="normal" title="Down Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="downButtonPressed:" destination="kz2-x7-tuy" eventType="touchUpInside" id="dJY-hU-fky"/>
+                                    <segue destination="mef-N9-dZn" kind="show" identifier="SHOW_LOCATION" id="ONP-mi-eoW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i8O-8g-Q7B">
+                                <rect key="frame" x="238" y="99" width="71" height="30"/>
+                                <state key="normal" title="Up Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="upButtonPressed:" destination="kz2-x7-tuy" eventType="touchUpInside" id="1jX-of-m9Q"/>
+                                    <segue destination="ofW-FQ-qVb" kind="show" identifier="SHOW_TIME" id="9uF-WW-sja"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="0WA-Iu-F4h"/>
+                    <connections>
+                        <outlet property="downButton" destination="4H8-3i-zGH" id="SAd-8t-lQL"/>
+                        <outlet property="upButton" destination="i8O-8g-Q7B" id="99e-0q-1gt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P2R-3P-1ov" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="488" y="412"/>
+            <point key="canvasLocation" x="1300" y="412"/>
         </scene>
         <!--Recorder View Controller-->
         <scene sceneID="fid-Iw-Oje">
@@ -56,12 +83,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Poq-lb-rJQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1396" y="412"/>
+            <point key="canvasLocation" x="2208" y="412"/>
         </scene>
-        <!--View Controller-->
+        <!--Location Picker View Controller-->
         <scene sceneID="0tT-E4-3PI">
             <objects>
-                <viewController id="mef-N9-dZn" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LOCATION_VC" id="mef-N9-dZn" customClass="LocationPickerViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="938-T3-eVh"/>
                         <viewControllerLayoutGuide type="bottom" id="LSF-NG-jC9"/>
@@ -74,7 +101,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MhM-m1-s3U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="488" y="1208"/>
+            <point key="canvasLocation" x="1308" y="1234"/>
         </scene>
         <!--Tutorial View Controller-->
         <scene sceneID="FGk-zH-jqd">
@@ -92,7 +119,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LYk-uQ-g7Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-540" y="412"/>
+            <point key="canvasLocation" x="-516" y="412"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hAh-QC-jux">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kaw-M7-mSa" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QiX-yc-kmi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="kz2-x7-tuy" kind="relationship" relationship="rootViewController" id="Uju-8L-z6U"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mh1-PR-eIl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="488" y="412"/>
         </scene>
     </scenes>
 </document>
