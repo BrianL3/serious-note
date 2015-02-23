@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  TimePickerViewController.h
 //  Serious Note
 //
 //  Created by Brian Ledbetter on 2/23/15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface TimePickerViewController : UIViewController
 
 @end
-
