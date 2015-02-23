@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TimePickerViewController.h"
+#import "LocationPickerViewController.h"
 
 @interface TriggerDecisionViewController : UIViewController
 
