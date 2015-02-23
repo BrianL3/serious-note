@@ -26,6 +26,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
 
     // set up gesture recogniers
     self.tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closePanel)];
@@ -33,6 +35,8 @@
 
     [self.upButton setBackgroundImage: [UIImage imageNamed:@"uparrow"] forState:UIControlStateNormal];
     [self.downButton setBackgroundImage:[UIImage imageNamed:@"downarrow"] forState:UIControlStateNormal];
+    
+    [self.view addGestureRecognizer:self.panGestureRecognizer];
 
 
 
@@ -46,14 +50,22 @@
 
 // pan gesture slides it open/closed depending on direction
 -(void)slidePanel:(id)sender {
+
     //self.panGestureRecognizer = (UIPanGestureRecognizer *) sender;
     CGPoint translatedPoint = [self.panGestureRecognizer translationInView:self.view];
     CGPoint velocity = [self.panGestureRecognizer velocityInView:self.view];
     
     if ([self.panGestureRecognizer state] == UIGestureRecognizerStateChanged) {
-        if (velocity.x > 0 || self.nextVC.view.frame.origin.x >0) {
+        if (velocity.y > 0 || self.nextVC.view.frame.origin.y >0) {
             //set translation
-            self.nextVC.view.center = CGPointMake(self.nextVC.view.center.x + translatedPoint.x, self.nextVC.view.center.y);
+            if (translatedPoint.y > 0) {
+                NSLog(@"the translated point's y position is: %f", translatedPoint.y);
+                self.nextVC = self.timePickerVC;
+            }else{
+                self.nextVC = self.locationPickerVC;
+            }
+            self.nextVC.view.center = CGPointMake(self.nextVC.view.center.x, self.nextVC.view.center.y + translatedPoint.y);
+            
             [self.panGestureRecognizer setTranslation:CGPointZero inView:self.view];
         }//eo if-velocity
     }//eo if-state changed
@@ -92,6 +104,9 @@
     if ([segue.identifier isEqualToString:@"SHOW_TIME"]){
         self.timePickerVC = segue.destinationViewController;
     }
+    if ([segue.identifier isEqualToString:@"SHOW_LOCATION"]) {
+        self.locationPickerVC = segue.destinationViewController;
+    }
     
 }
 
@@ -120,19 +135,19 @@
 
 
 //
-//-(UINavigationController *)timePickerVC {
-//    if (!_timePickerVC) {
-//        _timePickerVC = [self.storyboard instantiateViewControllerWithIdentifier:@"TIME_VC"];
-//    }
-//    return _timePickerVC;
-//}
-//
-//-(UINavigationController *)locationPickerVC {
-//    if (!_locationPickerVC) {
-//        _locationPickerVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LOCATION_VC"];
-//    }
-//    return _timePickerVC;
-//}
+-(UIViewController *)timePickerVC {
+    if (!_timePickerVC) {
+        _timePickerVC = [self.storyboard instantiateViewControllerWithIdentifier:@"TIME_VC"];
+    }
+    return _timePickerVC;
+}
+
+-(UIViewController *)locationPickerVC {
+    if (!_locationPickerVC) {
+        _locationPickerVC = [self.storyboard instantiateViewControllerWithIdentifier:@"LOCATION_VC"];
+    }
+    return _timePickerVC;
+}
 
 
 
