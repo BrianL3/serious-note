@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kaw-M7-mSa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6750" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kaw-M7-mSa">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6735"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Time Picker View Controller-->
@@ -85,6 +86,60 @@
             </objects>
             <point key="canvasLocation" x="2208" y="412"/>
         </scene>
+        <!--Add Reminder View Controller-->
+        <scene sceneID="Pkg-O0-9JY">
+            <objects>
+                <viewController id="OZN-VX-X22" customClass="AddReminderViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0TQ-2c-egg"/>
+                        <viewControllerLayoutGuide type="bottom" id="jUH-oT-YgD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0bF-HO-5HY">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Reminder Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VWf-MS-9FB">
+                                <rect key="frame" x="238" y="134" width="125" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jQs-Pa-Ctq">
+                                <rect key="frame" x="270" y="550" width="61" height="30"/>
+                                <state key="normal" title="Add Text">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addText:" destination="OZN-VX-X22" eventType="touchUpInside" id="rY6-CK-vCT"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7NO-la-vWA">
+                                <rect key="frame" x="265" y="495" width="70" height="30"/>
+                                <state key="normal" title="Add Voice">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addVoice:" destination="OZN-VX-X22" eventType="touchUpInside" id="5Ez-Ew-hHg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="VWf-MS-9FB" firstAttribute="top" secondItem="0TQ-2c-egg" secondAttribute="bottom" constant="70" id="2KJ-qi-l0w"/>
+                            <constraint firstItem="jUH-oT-YgD" firstAttribute="top" secondItem="jQs-Pa-Ctq" secondAttribute="bottom" constant="20" id="C56-i2-1F4"/>
+                            <constraint firstAttribute="centerX" secondItem="VWf-MS-9FB" secondAttribute="centerX" id="QLM-gi-CHs"/>
+                            <constraint firstAttribute="centerX" secondItem="jQs-Pa-Ctq" secondAttribute="centerX" id="W3c-7b-u0b"/>
+                            <constraint firstItem="jQs-Pa-Ctq" firstAttribute="top" secondItem="7NO-la-vWA" secondAttribute="bottom" constant="25" id="cYG-g5-89P"/>
+                            <constraint firstItem="7NO-la-vWA" firstAttribute="centerX" secondItem="jQs-Pa-Ctq" secondAttribute="centerX" id="uj9-fw-hYS"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="userText" destination="VWf-MS-9FB" id="LDR-gC-9rd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eNw-ru-k4Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2208" y="1234"/>
+        </scene>
         <!--Location Picker View Controller-->
         <scene sceneID="0tT-E4-3PI">
             <objects>
@@ -96,8 +151,23 @@
                     <view key="view" contentMode="scaleToFill" id="BXz-O8-j5I">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="xZ6-Bl-56Q">
+                                <rect key="frame" x="0.0" y="64" width="600" height="552"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" red="0.32094000109999998" green="0.71906844969999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottomMargin" secondItem="xZ6-Bl-56Q" secondAttribute="bottom" constant="-16" id="7Iw-fx-JJ6"/>
+                            <constraint firstItem="xZ6-Bl-56Q" firstAttribute="leading" secondItem="BXz-O8-j5I" secondAttribute="leadingMargin" constant="-16" id="LXw-qt-MPC"/>
+                            <constraint firstItem="xZ6-Bl-56Q" firstAttribute="top" secondItem="938-T3-eVh" secondAttribute="bottom" id="W41-5K-0kp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xZ6-Bl-56Q" secondAttribute="trailing" constant="-16" id="wk6-as-1Ii"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="xZ6-Bl-56Q" id="IeR-qO-dnz"/>
+                        <segue destination="OZN-VX-X22" kind="show" identifier="SHOW_DETAIL" id="kaQ-HF-q2g"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MhM-m1-s3U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
