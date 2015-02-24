@@ -26,9 +26,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.upButton setBackgroundImage: [UIImage imageNamed:@"uparrow"] forState:UIControlStateNormal];
-    [self.downButton setBackgroundImage:[UIImage imageNamed:@"downarrow"] forState:UIControlStateNormal];
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,10 +52,12 @@
 
 //MARK: BUTTON PRESSES ======================================================================================================================================
 - (IBAction)upButtonPressed:(id)sender {
-
+    [self performSegueWithIdentifier:@"SLIDE_TO_TIME" sender:self];
 }
 
 - (IBAction)downButtonPressed:(id)sender {
+    [self performSegueWithIdentifier:@"SLIDE_TO_MAP" sender:self];
+
 }
 
 

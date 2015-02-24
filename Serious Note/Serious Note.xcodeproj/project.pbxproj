@@ -21,6 +21,9 @@
 		FA57003D1A9BA1E2001C54CE /* LocationPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA57003C1A9BA1E2001C54CE /* LocationPickerViewController.m */; };
 		FA5700401A9BA207001C54CE /* RecorderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA57003F1A9BA207001C54CE /* RecorderViewController.m */; };
 		FA5700491A9BF4B6001C54CE /* SlideToTimeSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5700481A9BF4B6001C54CE /* SlideToTimeSegue.m */; };
+		FA57004D1A9C05ED001C54CE /* SlideToMap.m in Sources */ = {isa = PBXBuildFile; fileRef = FA57004C1A9C05ED001C54CE /* SlideToMap.m */; };
+		FA5700501A9C14B1001C54CE /* SlightToTriggerFromTimeSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = FA57004F1A9C14B1001C54CE /* SlightToTriggerFromTimeSegue.m */; };
+		FA5700531A9C166C001C54CE /* SlideToTriggerFromMapSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5700521A9C166C001C54CE /* SlideToTriggerFromMapSegue.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +63,12 @@
 		FA57003F1A9BA207001C54CE /* RecorderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecorderViewController.m; sourceTree = "<group>"; };
 		FA5700471A9BF4B6001C54CE /* SlideToTimeSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideToTimeSegue.h; sourceTree = "<group>"; };
 		FA5700481A9BF4B6001C54CE /* SlideToTimeSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideToTimeSegue.m; sourceTree = "<group>"; };
+		FA57004B1A9C05ED001C54CE /* SlideToMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideToMap.h; sourceTree = "<group>"; };
+		FA57004C1A9C05ED001C54CE /* SlideToMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideToMap.m; sourceTree = "<group>"; };
+		FA57004E1A9C14B1001C54CE /* SlightToTriggerFromTimeSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlightToTriggerFromTimeSegue.h; sourceTree = "<group>"; };
+		FA57004F1A9C14B1001C54CE /* SlightToTriggerFromTimeSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlightToTriggerFromTimeSegue.m; sourceTree = "<group>"; };
+		FA5700511A9C166C001C54CE /* SlideToTriggerFromMapSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideToTriggerFromMapSegue.h; sourceTree = "<group>"; };
+		FA5700521A9C166C001C54CE /* SlideToTriggerFromMapSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideToTriggerFromMapSegue.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +156,7 @@
 		FA5700311A9BA0B4001C54CE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				FA57004A1A9C05A5001C54CE /* Segues */,
 				FA57000A1A9B9BE7001C54CE /* AppDelegate.h */,
 				FA57000B1A9B9BE7001C54CE /* AppDelegate.m */,
 				2F88AFA61A9BD02C00D6F072 /* AddReminderViewController.h */,
@@ -161,10 +171,23 @@
 				FA5700331A9BA12A001C54CE /* TriggerDecisionViewController.m */,
 				FA5700351A9BA159001C54CE /* TutorialViewController.h */,
 				FA5700361A9BA159001C54CE /* TutorialViewController.m */,
-				FA5700471A9BF4B6001C54CE /* SlideToTimeSegue.h */,
-				FA5700481A9BF4B6001C54CE /* SlideToTimeSegue.m */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		FA57004A1A9C05A5001C54CE /* Segues */ = {
+			isa = PBXGroup;
+			children = (
+				FA5700471A9BF4B6001C54CE /* SlideToTimeSegue.h */,
+				FA5700481A9BF4B6001C54CE /* SlideToTimeSegue.m */,
+				FA57004B1A9C05ED001C54CE /* SlideToMap.h */,
+				FA57004C1A9C05ED001C54CE /* SlideToMap.m */,
+				FA57004E1A9C14B1001C54CE /* SlightToTriggerFromTimeSegue.h */,
+				FA57004F1A9C14B1001C54CE /* SlightToTriggerFromTimeSegue.m */,
+				FA5700511A9C166C001C54CE /* SlideToTriggerFromMapSegue.h */,
+				FA5700521A9C166C001C54CE /* SlideToTriggerFromMapSegue.m */,
+			);
+			name = Segues;
 			sourceTree = "<group>";
 		};
 		FA57FFFA1A9B9BE7001C54CE = {
@@ -287,10 +310,13 @@
 				FA5700401A9BA207001C54CE /* RecorderViewController.m in Sources */,
 				FA57000C1A9B9BE7001C54CE /* AppDelegate.m in Sources */,
 				FA5700091A9B9BE7001C54CE /* main.m in Sources */,
+				FA5700501A9C14B1001C54CE /* SlightToTriggerFromTimeSegue.m in Sources */,
+				FA57004D1A9C05ED001C54CE /* SlideToMap.m in Sources */,
 				FA5700491A9BF4B6001C54CE /* SlideToTimeSegue.m in Sources */,
 				FA57000F1A9B9BE7001C54CE /* Serious_Note.xcdatamodeld in Sources */,
 				FA57003A1A9BA1B9001C54CE /* TimePickerViewController.m in Sources */,
 				FA5700341A9BA12A001C54CE /* TriggerDecisionViewController.m in Sources */,
+				FA5700531A9C166C001C54CE /* SlideToTriggerFromMapSegue.m in Sources */,
 				2F88AFA81A9BD02C00D6F072 /* AddReminderViewController.m in Sources */,
 				FA5700371A9BA159001C54CE /* TutorialViewController.m in Sources */,
 				FA57003D1A9BA1E2001C54CE /* LocationPickerViewController.m in Sources */,
