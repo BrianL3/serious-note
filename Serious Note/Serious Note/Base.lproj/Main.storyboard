@@ -44,7 +44,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="i8O-8g-Q7B">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="i8O-8g-Q7B">
                                 <rect key="frame" x="20" y="118" width="175" height="59"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="59" id="hn2-S5-t3w"/>
@@ -67,7 +67,7 @@
                                     <action selector="upButtonPressed:" destination="kz2-x7-tuy" eventType="touchUpInside" id="1jX-of-m9Q"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="4H8-3i-zGH">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="4H8-3i-zGH">
                                 <rect key="frame" x="20" y="391" width="209" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="209" id="cKu-hj-Pj7"/>
@@ -110,7 +110,7 @@
                 </swipeGestureRecognizer>
                 <swipeGestureRecognizer direction="up" id="wzb-g8-GR5">
                     <connections>
-                        <segue destination="mef-N9-dZn" kind="custom" identifier="SLIDE_TO_MAP" customClass="SlideToMap" id="aO5-cT-cV8"/>
+                        <segue destination="Rk3-G4-gpg" kind="custom" identifier="SLIDE_TO_MAP" customClass="SlideToMap" id="aO5-cT-cV8"/>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
@@ -146,7 +146,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Reminder Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VWf-MS-9FB">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Reminder Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VWf-MS-9FB">
                                 <rect key="frame" x="238" y="134" width="125" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -186,7 +186,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eNw-ru-k4Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2208" y="1234"/>
+            <point key="canvasLocation" x="3020" y="1234"/>
         </scene>
         <!--Location Picker View Controller-->
         <scene sceneID="0tT-E4-3PI">
@@ -203,9 +203,6 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="xZ6-Bl-56Q">
                                 <rect key="frame" x="0.0" y="64" width="600" height="552"/>
                                 <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="aeY-gE-Ggt" appends="YES" id="wlW-uF-jrL"/>
-                                </connections>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" red="0.32094000109999998" green="0.71906844969999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -216,19 +213,23 @@
                             <constraint firstAttribute="trailingMargin" secondItem="xZ6-Bl-56Q" secondAttribute="trailing" constant="-16" id="wk6-as-1Ii"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="APK-6l-pkS">
+                        <barButtonItem key="rightBarButtonItem" title="back" id="lPo-Fs-axs">
+                            <connections>
+                                <segue destination="kz2-x7-tuy" kind="custom" identifier="SLIDE_UP_FROM_MAP" customClass="SlideToTriggerFromMapSegue" id="URF-Nw-2yb"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="mapView" destination="xZ6-Bl-56Q" id="IeR-qO-dnz"/>
                         <segue destination="OZN-VX-X22" kind="show" identifier="SHOW_DETAIL" id="kaQ-HF-q2g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MhM-m1-s3U" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <swipeGestureRecognizer direction="right" id="aeY-gE-Ggt">
-                    <connections>
-                        <segue destination="kz2-x7-tuy" kind="custom" id="GBM-0G-eEy"/>
-                    </connections>
-                </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1159" y="1468"/>
+            <point key="canvasLocation" x="1971" y="1468"/>
         </scene>
         <!--Tutorial View Controller-->
         <scene sceneID="FGk-zH-jqd">
@@ -248,8 +249,26 @@
             </objects>
             <point key="canvasLocation" x="-516" y="412"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vjz-xD-JE1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Rk3-G4-gpg" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0Ta-8K-utD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="mef-N9-dZn" kind="relationship" relationship="rootViewController" id="17T-Wd-S6S"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MTx-c4-1mi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1159" y="1468"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="GBM-0G-eEy"/>
+        <segue reference="jdf-Wj-Cud"/>
     </inferredMetricsTieBreakers>
 </document>
