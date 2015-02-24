@@ -15,4 +15,7 @@
 @interface LocationPickerViewController : UIViewController
 @property (strong, nonatomic) CLLocationManager *locationManager;
 
+@property (strong, nonatomic) MKPointAnnotation *annotation;
+@property (strong, nonatomic) CLLocationManager *locationManager;
+
 @end

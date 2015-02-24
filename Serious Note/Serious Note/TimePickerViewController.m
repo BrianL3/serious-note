@@ -7,8 +7,12 @@
 //
 
 #import "TimePickerViewController.h"
+#import "ReminderService.h"
 
 @interface TimePickerViewController ()
+
+@property (weak, nonatomic) IBOutlet UIDatePicker *reminderDatePicker;
+
 
 @end
 
@@ -16,7 +20,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+    //no setting reminders on dates in the past
+    self.reminderDatePicker.minimumDate = [[NSDate alloc] init];
+
+
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
