@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2F88AFA81A9BD02C00D6F072 /* AddReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F88AFA71A9BD02C00D6F072 /* AddReminderViewController.m */; };
 		FA44E4391A9CFA8500558CD4 /* ReminderService.m in Sources */ = {isa = PBXBuildFile; fileRef = FA44E4381A9CFA8500558CD4 /* ReminderService.m */; };
+		FA44E43F1A9D0D8C00558CD4 /* Reminder.m in Sources */ = {isa = PBXBuildFile; fileRef = FA44E43E1A9D0D8C00558CD4 /* Reminder.m */; };
 		FA5700091A9B9BE7001C54CE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5700081A9B9BE7001C54CE /* main.m */; };
 		FA57000C1A9B9BE7001C54CE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA57000B1A9B9BE7001C54CE /* AppDelegate.m */; };
 		FA57000F1A9B9BE7001C54CE /* Serious_Note.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA57000D1A9B9BE7001C54CE /* Serious_Note.xcdatamodeld */; };
@@ -42,6 +43,8 @@
 		2F88AFA71A9BD02C00D6F072 /* AddReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddReminderViewController.m; sourceTree = "<group>"; };
 		FA44E4371A9CFA8500558CD4 /* ReminderService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReminderService.h; sourceTree = "<group>"; };
 		FA44E4381A9CFA8500558CD4 /* ReminderService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReminderService.m; sourceTree = "<group>"; };
+		FA44E43D1A9D0D8C00558CD4 /* Reminder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reminder.h; sourceTree = "<group>"; };
+		FA44E43E1A9D0D8C00558CD4 /* Reminder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reminder.m; sourceTree = "<group>"; };
 		FA5700031A9B9BE7001C54CE /* Serious Note.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Serious Note.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA5700071A9B9BE7001C54CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA5700081A9B9BE7001C54CE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -144,6 +147,8 @@
 			children = (
 				FA44E4371A9CFA8500558CD4 /* ReminderService.h */,
 				FA44E4381A9CFA8500558CD4 /* ReminderService.m */,
+				FA44E43D1A9D0D8C00558CD4 /* Reminder.h */,
+				FA44E43E1A9D0D8C00558CD4 /* Reminder.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -325,6 +330,7 @@
 				FA5700531A9C166C001C54CE /* SlideToTriggerFromMapSegue.m in Sources */,
 				2F88AFA81A9BD02C00D6F072 /* AddReminderViewController.m in Sources */,
 				FA5700371A9BA159001C54CE /* TutorialViewController.m in Sources */,
+				FA44E43F1A9D0D8C00558CD4 /* Reminder.m in Sources */,
 				FA57003D1A9BA1E2001C54CE /* LocationPickerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
