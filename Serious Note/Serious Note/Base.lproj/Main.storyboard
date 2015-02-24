@@ -134,7 +134,7 @@
             </objects>
             <point key="canvasLocation" x="2208" y="412"/>
         </scene>
-        <!--Add Reminder View Controller-->
+        <!--Title-->
         <scene sceneID="Pkg-O0-9JY">
             <objects>
                 <viewController id="OZN-VX-X22" customClass="AddReminderViewController" sceneMemberID="viewController">
@@ -146,55 +146,64 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Reminder Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VWf-MS-9FB">
-                                <rect key="frame" x="238" y="134" width="125" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jQs-Pa-Ctq">
-                                <rect key="frame" x="270" y="550" width="61" height="30"/>
-                                <state key="normal" title="Add Text">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="addText:" destination="OZN-VX-X22" eventType="touchUpInside" id="rY6-CK-vCT"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7NO-la-vWA">
-                                <rect key="frame" x="265" y="500" width="70" height="30"/>
+                                <rect key="frame" x="265" y="424" width="70" height="30"/>
                                 <state key="normal" title="Add Voice">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="addVoice:" destination="OZN-VX-X22" eventType="touchUpInside" id="5Ez-Ew-hHg"/>
+                                    <action selector="addVoice:" destination="OZN-VX-X22" eventType="touchUpInside" id="Y9T-mV-hpJ"/>
                                 </connections>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="OLN-X6-Q9a">
-                                <rect key="frame" x="16" y="148" width="568" height="327"/>
+                                <rect key="frame" x="16" y="70" width="568" height="346"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="346" id="xdw-NP-bcu"/>
+                                    <constraint firstAttribute="width" constant="568" id="zEF-hh-yMJ"/>
+                                </constraints>
                             </mapView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sE5-hh-C3c">
+                                <rect key="frame" x="16" y="451" width="568" height="85"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="568" id="sh6-Qr-oUJ"/>
+                                    <constraint firstAttribute="height" constant="85" id="tLm-xw-4hT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="OLN-X6-Q9a" firstAttribute="trailing" secondItem="0bF-HO-5HY" secondAttribute="trailingMargin" id="6TW-6c-NAP"/>
-                            <constraint firstItem="VWf-MS-9FB" firstAttribute="top" secondItem="0TQ-2c-egg" secondAttribute="bottom" constant="25" id="CYi-dG-lTr"/>
-                            <constraint firstItem="jQs-Pa-Ctq" firstAttribute="top" secondItem="7NO-la-vWA" secondAttribute="bottom" constant="20" id="DEI-W2-TBh"/>
-                            <constraint firstAttribute="centerX" secondItem="jQs-Pa-Ctq" secondAttribute="centerX" id="MK5-OY-YFN"/>
-                            <constraint firstItem="7NO-la-vWA" firstAttribute="top" secondItem="OLN-X6-Q9a" secondAttribute="bottom" constant="25" id="iXV-YU-9PB"/>
-                            <constraint firstItem="jUH-oT-YgD" firstAttribute="top" secondItem="jQs-Pa-Ctq" secondAttribute="bottom" constant="20" id="rMJ-Z2-o1O"/>
-                            <constraint firstItem="OLN-X6-Q9a" firstAttribute="top" secondItem="VWf-MS-9FB" secondAttribute="bottom" constant="29" id="sFV-oB-XNc"/>
-                            <constraint firstItem="jQs-Pa-Ctq" firstAttribute="centerX" secondItem="7NO-la-vWA" secondAttribute="centerX" id="tXV-5d-Bxb"/>
-                            <constraint firstItem="OLN-X6-Q9a" firstAttribute="leading" secondItem="0bF-HO-5HY" secondAttribute="leadingMargin" id="uAo-uJ-iBj"/>
-                            <constraint firstAttribute="centerX" secondItem="VWf-MS-9FB" secondAttribute="centerX" id="yTI-sp-O7A"/>
+                            <constraint firstItem="7NO-la-vWA" firstAttribute="top" secondItem="OLN-X6-Q9a" secondAttribute="bottom" constant="8" id="1s4-TY-G0S"/>
+                            <constraint firstAttribute="centerX" secondItem="sE5-hh-C3c" secondAttribute="centerX" id="4aa-uR-Dy3"/>
+                            <constraint firstItem="sE5-hh-C3c" firstAttribute="leading" secondItem="0bF-HO-5HY" secondAttribute="leadingMargin" id="6cJ-IG-AIS"/>
+                            <constraint firstItem="OLN-X6-Q9a" firstAttribute="trailing" secondItem="0bF-HO-5HY" secondAttribute="trailingMargin" id="FZh-ug-ct5"/>
+                            <constraint firstItem="OLN-X6-Q9a" firstAttribute="top" secondItem="0TQ-2c-egg" secondAttribute="bottom" constant="50" id="h27-Cl-HuQ"/>
+                            <constraint firstItem="sE5-hh-C3c" firstAttribute="trailing" secondItem="0bF-HO-5HY" secondAttribute="trailingMargin" id="ize-OO-EcM"/>
+                            <constraint firstItem="jUH-oT-YgD" firstAttribute="top" relation="greaterThanOrEqual" secondItem="sE5-hh-C3c" secondAttribute="bottom" constant="20" id="mel-DO-9Zh"/>
+                            <constraint firstAttribute="centerX" secondItem="7NO-la-vWA" secondAttribute="centerX" id="nhI-d0-VhF"/>
+                            <constraint firstItem="OLN-X6-Q9a" firstAttribute="leading" secondItem="0bF-HO-5HY" secondAttribute="leadingMargin" id="xv4-k3-lN5"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="gWP-B9-qwB">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="Lsp-cp-GVL">
+                            <connections>
+                                <action selector="doneButtonPressed:" destination="OZN-VX-X22" id="1C0-T6-Gjd"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="doneButton" destination="Lsp-cp-GVL" id="n3W-MS-cKB"/>
                         <outlet property="mapView" destination="OLN-X6-Q9a" id="3q1-Ds-NWj"/>
-                        <outlet property="userText" destination="VWf-MS-9FB" id="LDR-gC-9rd"/>
+                        <outlet property="textView" destination="sE5-hh-C3c" id="f5p-zO-c9F"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eNw-ru-k4Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3020" y="1234"/>
+            <point key="canvasLocation" x="2804" y="1468"/>
         </scene>
         <!--Location Picker View Controller-->
         <scene sceneID="0tT-E4-3PI">
@@ -277,6 +286,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="jdf-Wj-Cud"/>
+        <segue reference="URF-Nw-2yb"/>
     </inferredMetricsTieBreakers>
 </document>
