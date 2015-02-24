@@ -91,7 +91,7 @@
 // set up the pin as an annotation view
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
-  MKPinAnnotationView *annotationView = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:@"ANNOTATION_VIEW"];
+  MKPinAnnotationView *annotationView = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:@"LOCAL_ANNOTATION_VIEW"];
   
   // set some of the pin's properties
   annotationView.animatesDrop = true;
