@@ -36,28 +36,50 @@
   self.locationManager =[CLLocationManager new];
   self.locationManager.delegate = self;
   self.mapView.delegate = self;
+  self.mapView.rotateEnabled = false; // don't spin the map when you rotate the phone
   
-  
-  // check to see if location services are enabled
-  if ([CLLocationManager locationServicesEnabled])
-  {
-    // check to see if using location services is authorized
-    if ([CLLocationManager authorizationStatus] == 0) // not authorized
-    {
-      // request authorization
-      [self.locationManager requestWhenInUseAuthorization];
-    } // if not authorized
-    else if ([CLLocationManager authorizationStatus] >= 3) // we are authorized
-    {
-      self.mapView.showsUserLocation = true;
-      [self.locationManager startMonitoringSignificantLocationChanges];
-    } // we're authorized
-    else
-    {
-      // TODO: Add error-handling code here for states 1 and 2 (restricted or denied)
-    } // error
-  } // if location services enabled
-  
+   if ([CLLocationManager locationServicesEnabled]) {
+    //NSString* returnString = [_myStack lastObject];
+    NSInteger authorizationNumber = [CLLocationManager authorizationStatus];
+    // begin switch through location manager's auth statuses
+    //NSLog(@"The Auth Number is : %ld", (long)authorizationNumber);
+    switch (authorizationNumber) {
+      case 0:
+        // Status 0 is Not Determined
+        [self.locationManager requestAlwaysAuthorization];
+        NSLog(@"Hit Status 0 in Authorization switch");
+        break;
+      case 1:
+        // Status 1 is Restricted
+        NSLog(@"Hit Status 1 in Authorization switch");
+        break;
+      case 2:
+        // Status 2 is Denied
+        NSLog(@"Location Sevices Authorization denied.");
+        break;
+      case 3:
+        // Status 3 is Authorized
+        self.mapView.showsUserLocation = true;
+        [self.locationManager startUpdatingLocation];
+        break;
+      case 4:
+        // Status 4 is Always Authorized
+        self.mapView.showsUserLocation = true;
+        // for very fine, data heavy, specific location data
+        [self.locationManager startUpdatingLocation];
+        // for less fine (based off wifi) location data [but less battery heavy]
+        //[self.locationManager startMonitoringSignificantLocationChanges];
+        // for monitoring region changes
+        //[self.locationManager startMonitoringForRegion:<#(CLRegion *)#>]
+        break;
+      default:
+        NSLog(@"Hit default case in AuthNumber switch");
+        break;
+    }
+  } else {
+    // pop an alert warning user that location services are not enabled
+  }
+    
   UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(mapLongPressed:)];
   
   [self.mapView addGestureRecognizer:longPress];
@@ -109,6 +131,10 @@
 // set up the pin as an annotation view
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
+  if ([annotation isEqual:[mapView userLocation]]){
+    return nil;
+  }
+  
   MKPinAnnotationView *annotationView = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:@"ANNOTATION_VIEW"];
   
   // set some of the pin's properties

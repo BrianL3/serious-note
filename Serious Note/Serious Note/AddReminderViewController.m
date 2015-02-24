@@ -10,7 +10,7 @@
 
 #define METERS_PER_MILE 1609.344
 
-@interface AddReminderViewController () <MKMapViewDelegate,  UITextViewDelegate>
+@interface AddReminderViewController () <MKMapViewDelegate, UITextViewDelegate>
 
 @property (strong, nonatomic) NSString *reminderName;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
