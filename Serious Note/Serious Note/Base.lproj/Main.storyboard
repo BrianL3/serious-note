@@ -161,7 +161,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7NO-la-vWA">
-                                <rect key="frame" x="265" y="495" width="70" height="30"/>
+                                <rect key="frame" x="265" y="500" width="70" height="30"/>
                                 <state key="normal" title="Add Voice">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -169,18 +169,26 @@
                                     <action selector="addVoice:" destination="OZN-VX-X22" eventType="touchUpInside" id="5Ez-Ew-hHg"/>
                                 </connections>
                             </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="OLN-X6-Q9a">
+                                <rect key="frame" x="16" y="148" width="568" height="327"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="VWf-MS-9FB" firstAttribute="top" secondItem="0TQ-2c-egg" secondAttribute="bottom" constant="70" id="2KJ-qi-l0w"/>
-                            <constraint firstItem="jUH-oT-YgD" firstAttribute="top" secondItem="jQs-Pa-Ctq" secondAttribute="bottom" constant="20" id="C56-i2-1F4"/>
-                            <constraint firstAttribute="centerX" secondItem="VWf-MS-9FB" secondAttribute="centerX" id="QLM-gi-CHs"/>
-                            <constraint firstAttribute="centerX" secondItem="jQs-Pa-Ctq" secondAttribute="centerX" id="W3c-7b-u0b"/>
-                            <constraint firstItem="jQs-Pa-Ctq" firstAttribute="top" secondItem="7NO-la-vWA" secondAttribute="bottom" constant="25" id="cYG-g5-89P"/>
-                            <constraint firstItem="7NO-la-vWA" firstAttribute="centerX" secondItem="jQs-Pa-Ctq" secondAttribute="centerX" id="uj9-fw-hYS"/>
+                            <constraint firstItem="OLN-X6-Q9a" firstAttribute="trailing" secondItem="0bF-HO-5HY" secondAttribute="trailingMargin" id="6TW-6c-NAP"/>
+                            <constraint firstItem="VWf-MS-9FB" firstAttribute="top" secondItem="0TQ-2c-egg" secondAttribute="bottom" constant="25" id="CYi-dG-lTr"/>
+                            <constraint firstItem="jQs-Pa-Ctq" firstAttribute="top" secondItem="7NO-la-vWA" secondAttribute="bottom" constant="20" id="DEI-W2-TBh"/>
+                            <constraint firstAttribute="centerX" secondItem="jQs-Pa-Ctq" secondAttribute="centerX" id="MK5-OY-YFN"/>
+                            <constraint firstItem="7NO-la-vWA" firstAttribute="top" secondItem="OLN-X6-Q9a" secondAttribute="bottom" constant="25" id="iXV-YU-9PB"/>
+                            <constraint firstItem="jUH-oT-YgD" firstAttribute="top" secondItem="jQs-Pa-Ctq" secondAttribute="bottom" constant="20" id="rMJ-Z2-o1O"/>
+                            <constraint firstItem="OLN-X6-Q9a" firstAttribute="top" secondItem="VWf-MS-9FB" secondAttribute="bottom" constant="29" id="sFV-oB-XNc"/>
+                            <constraint firstItem="jQs-Pa-Ctq" firstAttribute="centerX" secondItem="7NO-la-vWA" secondAttribute="centerX" id="tXV-5d-Bxb"/>
+                            <constraint firstItem="OLN-X6-Q9a" firstAttribute="leading" secondItem="0bF-HO-5HY" secondAttribute="leadingMargin" id="uAo-uJ-iBj"/>
+                            <constraint firstAttribute="centerX" secondItem="VWf-MS-9FB" secondAttribute="centerX" id="yTI-sp-O7A"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="mapView" destination="OLN-X6-Q9a" id="3q1-Ds-NWj"/>
                         <outlet property="userText" destination="VWf-MS-9FB" id="LDR-gC-9rd"/>
                     </connections>
                 </viewController>
@@ -247,7 +255,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LYk-uQ-g7Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-516" y="412"/>
+            <point key="canvasLocation" x="2196" y="-328"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vjz-xD-JE1">
