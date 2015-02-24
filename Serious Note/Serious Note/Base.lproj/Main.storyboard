@@ -169,7 +169,7 @@
                                     <action selector="addVoice:" destination="OZN-VX-X22" eventType="touchUpInside" id="5Ez-Ew-hHg"/>
                                 </connections>
                             </button>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="OLN-X6-Q9a">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="OLN-X6-Q9a">
                                 <rect key="frame" x="16" y="148" width="568" height="327"/>
                             </mapView>
                         </subviews>
@@ -255,7 +255,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LYk-uQ-g7Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-516" y="412"/>
+            <point key="canvasLocation" x="2196" y="-328"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vjz-xD-JE1">
