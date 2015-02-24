@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6750" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kaw-M7-mSa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="kaw-M7-mSa">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6735"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -35,18 +35,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4H8-3i-zGH">
-                                <rect key="frame" x="250" y="395" width="90" height="30"/>
-                                <state key="normal" title="Down Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="downButtonPressed:" destination="kz2-x7-tuy" eventType="touchUpInside" id="dJY-hU-fky"/>
-                                    <segue destination="mef-N9-dZn" kind="show" identifier="SHOW_LOCATION" id="ONP-mi-eoW"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i8O-8g-Q7B">
-                                <rect key="frame" x="238" y="99" width="71" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i8O-8g-Q7B">
+                                <rect key="frame" x="87" y="118" width="132" height="57"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="132" id="wkv-GI-II0"/>
+                                    <constraint firstAttribute="height" constant="57" id="xFy-wu-wv2"/>
+                                </constraints>
                                 <state key="normal" title="Up Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -55,8 +49,33 @@
                                     <segue destination="ofW-FQ-qVb" kind="show" identifier="SHOW_TIME" id="9uF-WW-sja"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4H8-3i-zGH">
+                                <rect key="frame" x="87" y="408" width="132" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="132" id="wMe-dM-YgR"/>
+                                    <constraint firstAttribute="height" constant="51" id="x5d-vm-Duz"/>
+                                </constraints>
+                                <state key="normal" title="Down Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="downButtonPressed:" destination="kz2-x7-tuy" eventType="touchUpInside" id="dJY-hU-fky"/>
+                                    <segue destination="mef-N9-dZn" kind="show" identifier="SHOW_LOCATION" id="ONP-mi-eoW"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="0.67525940084153635" blue="0.75153311216502883" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="i8O-8g-Q7B" firstAttribute="leading" secondItem="4H8-3i-zGH" secondAttribute="leading" id="KUh-OX-STd"/>
+                            <constraint firstItem="4H8-3i-zGH" firstAttribute="top" secondItem="i8O-8g-Q7B" secondAttribute="bottom" constant="233" id="NlL-XK-f72"/>
+                            <constraint firstItem="i8O-8g-Q7B" firstAttribute="leading" secondItem="lZh-mx-Dy1" secondAttribute="leadingMargin" constant="71" id="R0V-Wc-gq2"/>
+                            <constraint firstItem="i8O-8g-Q7B" firstAttribute="top" secondItem="FDh-vM-qsA" secondAttribute="bottom" constant="54" id="jsm-Xk-7cF"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="flt-yx-Zmd" appends="YES" id="TDC-M8-Knx"/>
+                            <outletCollection property="gestureRecognizers" destination="wzb-g8-GR5" appends="YES" id="Xy5-Nw-aue"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="0WA-Iu-F4h"/>
                     <connections>
@@ -65,8 +84,18 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P2R-3P-1ov" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="down" id="flt-yx-Zmd">
+                    <connections>
+                        <segue destination="ofW-FQ-qVb" kind="custom" identifier="SLIDE_TO_TIME" customClass="SlideToTimeSegue" id="fhG-Sy-3SI"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="up" id="wzb-g8-GR5">
+                    <connections>
+                        <segue destination="mef-N9-dZn" kind="custom" identifier="SLIDE_TO_MAP" id="aO5-cT-cV8"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1300" y="412"/>
+            <point key="canvasLocation" x="1308" y="532"/>
         </scene>
         <!--Recorder View Controller-->
         <scene sceneID="fid-Iw-Oje">
@@ -210,4 +239,8 @@
             <point key="canvasLocation" x="488" y="412"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="aO5-cT-cV8"/>
+        <segue reference="fhG-Sy-3SI"/>
+    </inferredMetricsTieBreakers>
 </document>

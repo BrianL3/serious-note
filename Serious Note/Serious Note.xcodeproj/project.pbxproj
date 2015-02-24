@@ -20,6 +20,7 @@
 		FA57003A1A9BA1B9001C54CE /* TimePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5700391A9BA1B9001C54CE /* TimePickerViewController.m */; };
 		FA57003D1A9BA1E2001C54CE /* LocationPickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA57003C1A9BA1E2001C54CE /* LocationPickerViewController.m */; };
 		FA5700401A9BA207001C54CE /* RecorderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA57003F1A9BA207001C54CE /* RecorderViewController.m */; };
+		FA5700491A9BF4B6001C54CE /* SlideToTimeSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5700481A9BF4B6001C54CE /* SlideToTimeSegue.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,8 @@
 		FA57003C1A9BA1E2001C54CE /* LocationPickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationPickerViewController.m; sourceTree = "<group>"; };
 		FA57003E1A9BA207001C54CE /* RecorderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecorderViewController.h; sourceTree = "<group>"; };
 		FA57003F1A9BA207001C54CE /* RecorderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecorderViewController.m; sourceTree = "<group>"; };
+		FA5700471A9BF4B6001C54CE /* SlideToTimeSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideToTimeSegue.h; sourceTree = "<group>"; };
+		FA5700481A9BF4B6001C54CE /* SlideToTimeSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideToTimeSegue.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +161,8 @@
 				FA5700331A9BA12A001C54CE /* TriggerDecisionViewController.m */,
 				FA5700351A9BA159001C54CE /* TutorialViewController.h */,
 				FA5700361A9BA159001C54CE /* TutorialViewController.m */,
+				FA5700471A9BF4B6001C54CE /* SlideToTimeSegue.h */,
+				FA5700481A9BF4B6001C54CE /* SlideToTimeSegue.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -282,6 +287,7 @@
 				FA5700401A9BA207001C54CE /* RecorderViewController.m in Sources */,
 				FA57000C1A9B9BE7001C54CE /* AppDelegate.m in Sources */,
 				FA5700091A9B9BE7001C54CE /* main.m in Sources */,
+				FA5700491A9BF4B6001C54CE /* SlideToTimeSegue.m in Sources */,
 				FA57000F1A9B9BE7001C54CE /* Serious_Note.xcdatamodeld in Sources */,
 				FA57003A1A9BA1B9001C54CE /* TimePickerViewController.m in Sources */,
 				FA5700341A9BA12A001C54CE /* TriggerDecisionViewController.m in Sources */,
