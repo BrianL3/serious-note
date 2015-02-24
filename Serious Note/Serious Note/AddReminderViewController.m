@@ -8,11 +8,14 @@
 
 #import "AddReminderViewController.h"
 
-@interface AddReminderViewController ()
+#define METERS_PER_MILE 1609.344
+
+@interface AddReminderViewController () <MKMapViewDelegate>
 
 @property (strong, nonatomic) NSString *reminderName;
 @property (weak, nonatomic) IBOutlet UITextField *userText;
 
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
 @end
 
@@ -22,8 +25,17 @@
 {
   [super viewDidLoad];
   
-  NSLog(@"lat: %f, long: %f", self.annotation.coordinate.latitude, self.annotation.coordinate.longitude);
-}
+  CLLocationCoordinate2D mapCoord = self.annotation.coordinate;
+
+  MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance (mapCoord, 0.25 * METERS_PER_MILE, 0.25 * METERS_PER_MILE);
+  [self.mapView setRegion:region animated:true];
+  
+  [self.mapView addAnnotation: self.annotation];
+  
+  NSLog(@"lat: %f, long: %f", mapCoord.latitude, mapCoord.longitude);
+  
+} // viewDidLoad()
+
 
 - (IBAction)addVoice:(id)sender
 {
@@ -50,8 +62,7 @@
     
   } // if monitoring is available
   
-  // if the user didn't name
-}
+} // addVoice()
 
 - (IBAction)addText:(id)sender
 {
@@ -75,13 +86,21 @@
     
   } // if monitoring is available
   
-  // if the user didn't name
 } // pressedAddText()
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
+// set up the pin as an annotation view
+-(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
+{
+  MKPinAnnotationView *annotationView = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:@"ANNOTATION_VIEW"];
+  
+  // set some of the pin's properties
+  annotationView.animatesDrop = true;
+  annotationView.pinColor = MKPinAnnotationColorGreen;
+  
+  // show the annotation's data when press on the pin's head
+  annotationView.canShowCallout = false;
+  
+  return annotationView;
+} // mapView()
 
 @end

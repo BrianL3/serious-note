@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#define METERS_PER_MILE 1609.344
+
 @interface LocationPickerViewController : UIViewController
 
 @end

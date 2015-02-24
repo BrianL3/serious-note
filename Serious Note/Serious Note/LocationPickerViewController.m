@@ -25,12 +25,19 @@
 {
   [super viewDidLoad];
   
+  
+  CLLocationCoordinate2D workCoordinate = CLLocationCoordinate2DMake(47.6235481, -122.336212); // Code Fellows location
+  
+  MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance (workCoordinate, 1.0 * METERS_PER_MILE, 1.0 *METERS_PER_MILE);
+  [self.mapView setRegion:region animated:true];
+  
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reminderAdded:) name:@"ReminderAdded" object:nil];
   
   //MARK: location-related code
   self.locationManager =[CLLocationManager new];
   self.locationManager.delegate = self;
   self.mapView.delegate = self;
+  
   
   // check to see if location services are enabled
   if ([CLLocationManager locationServicesEnabled])
@@ -57,6 +64,7 @@
   [self.mapView addGestureRecognizer:longPress];
   
 } // viewDidLoad()
+
 
 - (void) mapLongPressed:(id) sender
 {
