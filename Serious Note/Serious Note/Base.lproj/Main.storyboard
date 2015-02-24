@@ -23,12 +23,26 @@
                                     <!--2015-02-24 18:35:57 +0000-->
                                 </date>
                             </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UwA-Gf-dD5">
+                                <rect key="frame" x="277" y="389" width="46" height="37"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-MediumItalic" family="Avenir Next" pointSize="18"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="doneButtonPressed:" destination="ofW-FQ-qVb" eventType="touchUpInside" id="i7Q-eF-8kQ"/>
+                                    <segue destination="GAz-dy-znE" kind="show" identifier="TIME_REMINDER_DETAIL" id="ifw-rD-D2l"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.66166644513462725" blue="0.68544334775553528" alpha="1" colorSpace="calibratedRGB"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="UwA-Gf-dD5" secondAttribute="centerX" id="Eyi-3f-drr"/>
                             <constraint firstAttribute="centerX" secondItem="KAV-1F-t8M" secondAttribute="centerX" id="PDj-aZ-Z3a"/>
                             <constraint firstAttribute="centerY" secondItem="KAV-1F-t8M" secondAttribute="centerY" id="erR-Zx-diZ"/>
+                            <constraint firstItem="UwA-Gf-dD5" firstAttribute="top" secondItem="KAV-1F-t8M" secondAttribute="bottom" constant="8" id="giC-Fa-NdU"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="HJZ-zV-VIX" appends="YES" id="6Pp-2h-ihL"/>
@@ -263,6 +277,24 @@
             </objects>
             <point key="canvasLocation" x="1971" y="1468"/>
         </scene>
+        <!--Time Reminder Detail View Controller-->
+        <scene sceneID="cWT-rh-YK4">
+            <objects>
+                <viewController id="GAz-dy-znE" customClass="TimeReminderDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NqF-YL-dR0"/>
+                        <viewControllerLayoutGuide type="bottom" id="jDC-YD-tKp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tkj-b3-Wca">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IZS-oG-eX9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1955" y="-278"/>
+        </scene>
         <!--Tutorial View Controller-->
         <scene sceneID="FGk-zH-jqd">
             <objects>
@@ -279,7 +311,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LYk-uQ-g7Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2196" y="-328"/>
+            <point key="canvasLocation" x="2505" y="-321"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vjz-xD-JE1">
@@ -301,6 +333,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="URF-Nw-2yb"/>
+        <segue reference="jdf-Wj-Cud"/>
     </inferredMetricsTieBreakers>
 </document>

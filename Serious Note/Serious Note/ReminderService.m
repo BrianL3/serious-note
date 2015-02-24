@@ -9,5 +9,12 @@
 #import "ReminderService.h"
 
 @implementation ReminderService
+-(void)addReminder: (Reminder*)reminder{
+    //user the network controller singleton to POST a reminder
+}
+
+-(void)removeReminder: (NSString*)reminderIdentity{
+    
+}
 
 @end
