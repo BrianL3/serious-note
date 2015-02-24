@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TimeReminderDetailViewController.h"
 
 @interface TimePickerViewController : UIViewController
 

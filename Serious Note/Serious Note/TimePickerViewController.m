@@ -12,6 +12,7 @@
 @interface TimePickerViewController ()
 
 @property (weak, nonatomic) IBOutlet UIDatePicker *reminderDatePicker;
+@property (strong, nonatomic) NSDate* selectedDate;
 
 
 @end
@@ -28,6 +29,9 @@
     
     
 }
+- (IBAction)doneButtonPressed:(id)sender {
+    self.selectedDate = self.reminderDatePicker.date;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -37,6 +41,13 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"TIME_REMINDER_DETAIL"]) {
+        if (self.selectedDate){
+        NSLog(@"a date was passed successfully");
+        }
+        TimeReminderDetailViewController* destinationVC = (TimeReminderDetailViewController*)segue.destinationViewController;
+        destinationVC.selectedDate = self.selectedDate;
+    }
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
