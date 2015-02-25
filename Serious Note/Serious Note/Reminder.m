@@ -17,6 +17,8 @@
         //set reminderID as the current clocktime
         NSDate* currentTime = [NSDate date];
         self.reminderID = currentTime.timeIntervalSinceReferenceDate;
+        //PLACEHOLDER: REPLACE THIS!
+        self.userID = @"bob";
     }
     return self;
 }
