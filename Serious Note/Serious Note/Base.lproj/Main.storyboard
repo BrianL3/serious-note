@@ -354,37 +354,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" placeholder="reminder for your future self" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I1u-d3-orW">
-                                <rect key="frame" x="198" y="114" width="204" height="80"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="204" id="Rx6-FA-irV"/>
-                                    <constraint firstAttribute="height" constant="80" id="Z7f-ro-weR"/>
-                                </constraints>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" placeholder="reminder for your future self" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I1u-d3-orW">
+                                <rect key="frame" x="16" y="71" width="204" height="80"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qlD-af-Hmc">
-                                <rect key="frame" x="277" y="543" width="46" height="37"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-MediumItalic" family="Avenir Next" pointSize="18"/>
-                                <state key="normal" title="Done">
-                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reminder Text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ef-eQ-7fH">
-                                <rect key="frame" x="242" y="81" width="117" height="25"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Reminder Text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ef-eQ-7fH">
+                                <rect key="frame" x="60" y="38" width="117" height="25"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-MediumItalic" family="Avenir Next" pointSize="18"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or record audio or video" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WcD-jU-ycF">
-                                <rect key="frame" x="201" y="287" width="198" height="25"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="or record audio or video" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WcD-jU-ycF">
+                                <rect key="frame" x="22" y="159" width="198" height="25"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-MediumItalic" family="Avenir Next" pointSize="18"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a7t-Ww-xhN">
-                                <rect key="frame" x="250" y="320" width="101" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a7t-Ww-xhN">
+                                <rect key="frame" x="68" y="192" width="101" height="30"/>
                                 <state key="normal" title="add A/V image">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -392,20 +380,22 @@
                                     <segue destination="2cn-i5-av5" kind="presentation" identifier="ADD_AUDIO_TO_TIME" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="HGi-4z-Hnf"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qlD-af-Hmc">
+                                <rect key="frame" x="95" y="230" width="46" height="37"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-MediumItalic" family="Avenir Next" pointSize="18"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled">
+                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="4PH-77-U0d" kind="show" identifier="TIME_CHOOSE_RECIPIENT" id="l1P-SD-7LB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.66166644509999994" blue="0.68544334780000005" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="centerX" secondItem="WcD-jU-ycF" secondAttribute="centerX" id="6bT-me-Bzo"/>
-                            <constraint firstItem="I1u-d3-orW" firstAttribute="top" secondItem="NqF-YL-dR0" secondAttribute="bottom" constant="94" id="CDl-Z0-9KG"/>
-                            <constraint firstAttribute="centerX" secondItem="I1u-d3-orW" secondAttribute="centerX" id="I0b-oq-2CY"/>
-                            <constraint firstItem="I1u-d3-orW" firstAttribute="top" secondItem="0ef-eQ-7fH" secondAttribute="bottom" constant="8" id="Kbo-7p-yL7"/>
-                            <constraint firstAttribute="centerX" secondItem="0ef-eQ-7fH" secondAttribute="centerX" id="RCy-ZX-MRy"/>
-                            <constraint firstAttribute="centerX" secondItem="qlD-af-Hmc" secondAttribute="centerX" id="Y2u-ii-Ffa"/>
-                            <constraint firstItem="a7t-Ww-xhN" firstAttribute="top" secondItem="WcD-jU-ycF" secondAttribute="bottom" constant="8" id="hZx-Qo-hhZ"/>
-                            <constraint firstItem="jDC-YD-tKp" firstAttribute="top" secondItem="qlD-af-Hmc" secondAttribute="bottom" constant="20" id="ihh-Kl-H0g"/>
-                            <constraint firstItem="WcD-jU-ycF" firstAttribute="top" secondItem="I1u-d3-orW" secondAttribute="bottom" constant="93" id="mpI-FY-cC9"/>
-                            <constraint firstAttribute="centerX" secondItem="a7t-Ww-xhN" secondAttribute="centerX" id="vOn-Ec-RNe"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="doneButton" destination="qlD-af-Hmc" id="EeE-Zh-YwK"/>
@@ -415,6 +405,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IZS-oG-eX9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2767" y="-278"/>
+        </scene>
+        <!--Recipient Selection View Controller-->
+        <scene sceneID="qny-pU-Cqy">
+            <objects>
+                <viewController id="4PH-77-U0d" customClass="RecipientSelectionViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hNj-Nv-sxw"/>
+                        <viewControllerLayoutGuide type="bottom" id="z7X-5v-GwX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VS3-3g-rwq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="09P-N5-7mu">
+                                <rect key="frame" x="40" y="160" width="278" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="textLabel" destination="09P-N5-7mu" id="nQo-fr-zZL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gnr-lb-EDm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3244" y="434"/>
         </scene>
         <!--Tutorial View Controller-->
         <scene sceneID="FGk-zH-jqd">

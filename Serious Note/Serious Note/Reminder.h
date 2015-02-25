@@ -10,17 +10,20 @@
 
 @interface Reminder : NSObject
 
+- (instancetype)initWithTime: (NSDate*)reminderTime withText:(NSString*)text withAudio:(NSData*)audioData withVideo:(NSData*)videoData;
+
+
 typedef enum _MediaType {
-    text = 0,
-    audio,
-    video,
-    unknown = -1
+    textType = 0,
+    audioType,
+    videoType,
+    unknownType = -1
 } MediaType;
 
 typedef enum _MessageType {
     timeBased = 0,
     locationBased,
-    unknownType = -1
+    unknownBased = -1
 } MessageType;
 
 @property (strong, nonatomic) NSString* userID;

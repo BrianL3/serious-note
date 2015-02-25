@@ -23,7 +23,7 @@
     [super viewDidLoad];
     
     // Set the audio file
-    NSArray *pathComponents = [NSArray arrayWithObjects: [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject], @"audioMemo", nil];
+    NSArray *pathComponents = [NSArray arrayWithObjects: [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject], @"audioMemo.m4a", nil];
     self.audioFileLocation = [NSURL fileURLWithPathComponents:pathComponents];
     
     // Setup audio session
@@ -44,7 +44,8 @@
     self.recorder.delegate = self;
     self.recorder.meteringEnabled = YES;
     [self.recorder prepareToRecord];
-
+    
+    self.audioFileLocation = self.recorder.url;
     
     //last bits of setup
     self.endButton.enabled = false;
@@ -67,10 +68,11 @@
 
 - (IBAction)stopButtonPressed:(id)sender {
     NSLog(@"the length of the recording was: %f", [self.recorder currentTime]);
-
+    self.audioSet(self.audioFileLocation);
     [self.recorder stop];
 
     NSLog(@"Stop button was pressed, the status of the player: %s", self.recorder.recording ? "recording" : "not recording");
+
     self.endButton.enabled = false;
     self.startButton.enabled = true;
 }

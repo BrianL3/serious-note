@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2F88AFA81A9BD02C00D6F072 /* AddReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F88AFA71A9BD02C00D6F072 /* AddReminderViewController.m */; };
+		FA3F63E31A9E80D700F719D1 /* RecipientSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3F63E21A9E80D700F719D1 /* RecipientSelectionViewController.m */; };
 		FA44E4391A9CFA8500558CD4 /* ReminderService.m in Sources */ = {isa = PBXBuildFile; fileRef = FA44E4381A9CFA8500558CD4 /* ReminderService.m */; };
 		FA44E43F1A9D0D8C00558CD4 /* Reminder.m in Sources */ = {isa = PBXBuildFile; fileRef = FA44E43E1A9D0D8C00558CD4 /* Reminder.m */; };
 		FA44E4451A9D390600558CD4 /* TimeReminderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA44E4441A9D390600558CD4 /* TimeReminderDetailViewController.m */; };
@@ -42,6 +43,8 @@
 /* Begin PBXFileReference section */
 		2F88AFA61A9BD02C00D6F072 /* AddReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddReminderViewController.h; sourceTree = "<group>"; };
 		2F88AFA71A9BD02C00D6F072 /* AddReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddReminderViewController.m; sourceTree = "<group>"; };
+		FA3F63E11A9E80D700F719D1 /* RecipientSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipientSelectionViewController.h; sourceTree = "<group>"; };
+		FA3F63E21A9E80D700F719D1 /* RecipientSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipientSelectionViewController.m; sourceTree = "<group>"; };
 		FA44E4371A9CFA8500558CD4 /* ReminderService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReminderService.h; sourceTree = "<group>"; };
 		FA44E4381A9CFA8500558CD4 /* ReminderService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReminderService.m; sourceTree = "<group>"; };
 		FA44E43D1A9D0D8C00558CD4 /* Reminder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reminder.h; sourceTree = "<group>"; };
@@ -186,6 +189,8 @@
 				FA5700331A9BA12A001C54CE /* TriggerDecisionViewController.m */,
 				FA5700351A9BA159001C54CE /* TutorialViewController.h */,
 				FA5700361A9BA159001C54CE /* TutorialViewController.m */,
+				FA3F63E11A9E80D700F719D1 /* RecipientSelectionViewController.h */,
+				FA3F63E21A9E80D700F719D1 /* RecipientSelectionViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -324,6 +329,7 @@
 			files = (
 				FA5700401A9BA207001C54CE /* RecorderViewController.m in Sources */,
 				FA57000C1A9B9BE7001C54CE /* AppDelegate.m in Sources */,
+				FA3F63E31A9E80D700F719D1 /* RecipientSelectionViewController.m in Sources */,
 				FA5700091A9B9BE7001C54CE /* main.m in Sources */,
 				FA44E4391A9CFA8500558CD4 /* ReminderService.m in Sources */,
 				FA44E4451A9D390600558CD4 /* TimeReminderDetailViewController.m in Sources */,
