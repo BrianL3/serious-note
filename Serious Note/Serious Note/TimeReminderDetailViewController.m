@@ -31,13 +31,32 @@
 
 //MARK: TEXTFIELD DELEGATE
 
--(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
-    NSString* oldText = self.textView.text;
-    NSString* newText = [oldText stringByReplacingCharactersInRange:range withString:string];
-    self.doneButton.enabled = (newText.length > 0 || newText.length < 50);
-    
-    return true;
-}
+
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+  
+  if (range.length + range.location > textField.text.length)
+  {
+    self.doneButton.enabled = false;
+    return false;
+  }
+  
+  NSUInteger newLength = textField.text.length + (string.length - range.length);
+  if (newLength <= 50) {
+    self.doneButton.enabled = true;
+  }
+  
+  else // length limit exceeded - let user know
+  {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Text Length Exceeded" message:@"Text is limitd to 50 characters" delegate:self cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+  }
+  
+  return (newLength > 50) ? false : true;
+  
+} // shouldChangeCharactersInRange
+
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     [self.textView resignFirstResponder];

@@ -24,11 +24,7 @@
 {
   [super viewDidLoad];
   
-  
   CLLocationCoordinate2D workCoordinate = CLLocationCoordinate2DMake(47.6235481, -122.336212); // Code Fellows location
-  
-  NSArray *monitoredRegions = [self.locationManager.monitoredRegions allObjects];
-  NSLog(@"Number of monitored regions: %lu", (unsigned long)monitoredRegions.count);
   
   MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance (workCoordinate, 1.0 * METERS_PER_MILE, 1.0 *METERS_PER_MILE);
   [self.mapView setRegion:region animated:true];
@@ -88,6 +84,15 @@
   [self.mapView addGestureRecognizer:longPress];
   
 } // viewDidLoad()
+
+- (void)viewWillAppear:(BOOL)animated
+{
+  [super viewWillAppear:animated];
+  
+  NSArray *monitoredRegions = [self.locationManager.monitoredRegions allObjects];
+  NSLog(@"Number of monitored regions: %lu", (unsigned long)monitoredRegions.count);
+
+} // viewWilAppear()
 
 
 - (void) mapLongPressed:(id) sender
