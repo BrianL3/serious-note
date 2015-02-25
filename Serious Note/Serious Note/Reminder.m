@@ -11,15 +11,31 @@
 @implementation Reminder
 
 //create a Reminder, the standard init.  to be used when creating a new reminder with a unique ID.
-- (instancetype)init{
+- (instancetype)initWithTime: (NSDate*)reminderTime withText:(NSString*)text withAudio:(NSData*)audioData withVideo:(NSData*)videoData{
     self = [super init];
     if (self) {
+        self.messageType = timeBased;
         //set reminderID as the current clocktime
         NSDate* currentTime = [NSDate date];
         self.reminderID = currentTime.timeIntervalSinceReferenceDate;
         //PLACEHOLDER: REPLACE THIS!
         self.userID = @"bob";
+        //creating the time reminder
+        if (audioData) {
+            self.audioContent = audioData;
+            self.mediaType = audioType;
+        }
+        if (text) {
+            self.textContent = text;
+            self.mediaType = textType;
+        }
+        if (videoData) {
+            self.videoContent = videoData;
+            self.mediaType = videoType;
+        }
+
     }
+    NSLog(@"A reminder object was just created with type: %d", self.mediaType);
     return self;
 }
 

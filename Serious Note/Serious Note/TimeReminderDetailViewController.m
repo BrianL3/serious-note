@@ -7,6 +7,7 @@
 //
 
 #import "TimeReminderDetailViewController.h"
+#import "RecipientSelectionViewController.h"
 
 @interface TimeReminderDetailViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
@@ -67,6 +68,16 @@
         };
     }
     if ([segue.identifier isEqualToString:@"TIME_CHOOSE_RECIPIENT"]) {
+        RecipientSelectionViewController* destinationVC = [[RecipientSelectionViewController alloc] init];
+        destinationVC = segue.destinationViewController;
+        NSData* audioData;
+        if(self.audioFileLocation){
+            audioData = [[NSData alloc] initWithContentsOfURL:self.audioFileLocation];
+        }
+        
+        self.myReminder = [[Reminder alloc] initWithTime:self.selectedDate withText:self.textView.text withAudio: audioData withVideo:nil];
+        destinationVC.selectedReminder = self.myReminder;
+        
      // create a new reminder, set the new VC's thing to the new reminder
     }
     
