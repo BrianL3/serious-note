@@ -30,18 +30,24 @@
 
 
 -(void)addReminder: (Reminder*)reminder{
+    //our server URL
+    NSURL* serverURL = [[NSURL alloc] initWithString:@""];
+    
     //user the network controller singleton to POST a reminder
+    NSString* bodyString = [NSString stringWithFormat:@"&user_id=%@&reminder_id=%d", reminder.userID, reminder.reminderID];
+    NSData* bodyData = [bodyString dataUsingEncoding:(NSASCIIStringEncoding)];
     
-    //METHOD 2: is is the 2nd way you can pass back info with a POST, and this is passing back info in the Body of the HTTP Request
-    //    let bodyString = "\(code!)&client_id=\(self.clientID)&client_secret=\(self.clientSecret)"
-    //    let bodyData = bodyString.dataUsingEncoding(NSASCIIStringEncoding, allowLossyConversion: true)
-    //    let length = bodyData!.length
-    //    let postRequest = NSMutableURLRequest(URL: NSURL(string: "https://github.com/login/oauth/access_token")!)
-    //    postRequest.HTTPMethod = "POST"
-    //    postRequest.setValue("\(length)", forHTTPHeaderField: "Content-Length")
-    //    postRequest.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-    //    postRequest.HTTPBody = bodyData
+    // a little error checking
+    NSUInteger length  = bodyData.length;
+    NSLog(@"the data is of length: %lu", length);
     
+    NSMutableURLRequest* postRequest = [[NSMutableURLRequest alloc] initWithURL:serverURL];
+    postRequest.HTTPMethod = @"POST";
+    NSString* lengthString = [NSString stringWithFormat:@"%lu", length];
+    [postRequest setValue:lengthString forHTTPHeaderField:@"Content-Length"];
+    [postRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    postRequest.HTTPBody = bodyData;
+        
 }
 
 -(void)removeReminder: (NSString*)reminderIdentity{

@@ -10,6 +10,8 @@
 
 @implementation Reminder
 
+//create a Reminder
+
 //serial a JSON blob into a reminder
 
 @end
