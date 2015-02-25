@@ -11,4 +11,7 @@
 
 @interface RecorderViewController : UIViewController
 
+@property (nonatomic, copy) void (^audioSet)(NSURL *response);
+
+
 @end
