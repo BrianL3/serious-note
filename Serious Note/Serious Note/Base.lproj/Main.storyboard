@@ -157,8 +157,56 @@
                     <view key="view" contentMode="scaleToFill" id="hfp-Sy-FkM">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hIX-eA-Th5">
+                                <rect key="frame" x="239" y="220" width="122" height="37"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-MediumItalic" family="Avenir Next" pointSize="18"/>
+                                <state key="normal" title="End Recording">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="stopButtonPressed:" destination="2cn-i5-av5" eventType="touchUpInside" id="P7E-N8-Q1y"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2po-ko-oBS">
+                                <rect key="frame" x="277" y="340" width="46" height="37"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-MediumItalic" family="Avenir Next" pointSize="18"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="doneButtonPressed:" destination="2cn-i5-av5" eventType="touchUpInside" id="RSW-ni-7aH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FaL-dH-Hig">
+                                <rect key="frame" x="232" y="102" width="137" height="37"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-MediumItalic" family="Avenir Next" pointSize="18"/>
+                                <state key="normal" title="Begin Recording">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startButtonPressed:" destination="2cn-i5-av5" eventType="touchUpInside" id="84b-qK-JbV"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.66166644509999994" blue="0.68544334780000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="hIX-eA-Th5" firstAttribute="top" secondItem="FaL-dH-Hig" secondAttribute="bottom" constant="81" id="7O2-XB-5ed"/>
+                            <constraint firstAttribute="centerX" secondItem="FaL-dH-Hig" secondAttribute="centerX" id="AbA-lb-V82"/>
+                            <constraint firstAttribute="centerX" secondItem="hIX-eA-Th5" secondAttribute="centerX" id="CEM-RP-Ocp"/>
+                            <constraint firstAttribute="centerX" secondItem="2po-ko-oBS" secondAttribute="centerX" id="XNA-zs-OqO"/>
+                            <constraint firstItem="2po-ko-oBS" firstAttribute="top" secondItem="hIX-eA-Th5" secondAttribute="bottom" constant="83" id="m4t-ra-tuu"/>
+                            <constraint firstItem="FaL-dH-Hig" firstAttribute="top" secondItem="Mnd-Fn-tHo" secondAttribute="bottom" constant="82" id="nub-xS-GiM"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="doneButton" destination="hfp-Sy-FkM" id="1Sw-Qf-Rz5"/>
+                        <outlet property="endButton" destination="hIX-eA-Th5" id="uJl-RQ-eh9"/>
+                        <outlet property="startButton" destination="FaL-dH-Hig" id="Q0p-ob-GoE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Poq-lb-rJQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
