@@ -71,6 +71,8 @@
     [self.recorder stop];
 
     NSLog(@"Stop button was pressed, the status of the player: %s", self.recorder.recording ? "recording" : "not recording");
+    self.audioSet(self.audioFileLocation);
+
     self.endButton.enabled = false;
     self.startButton.enabled = true;
 }

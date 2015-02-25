@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RecorderViewController.h"
 
 @interface TimeReminderDetailViewController : UIViewController
 @property (strong, nonatomic) NSDate* selectedDate;
