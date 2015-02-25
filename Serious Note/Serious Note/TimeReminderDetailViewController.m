@@ -11,13 +11,15 @@
 @interface TimeReminderDetailViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
 @property (weak, nonatomic) IBOutlet UITextField *textView;
-
+@property BOOL hasAudio;
+@property (strong, nonatomic) NSURL* audioFileLocation;
+@property (strong, nonatomic) Reminder* myReminder;
 @end
 
 @implementation TimeReminderDetailViewController
 
 - (void)viewDidLoad {
-    self.hasAudio = false;
+
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.doneButton.enabled = false;
@@ -26,7 +28,7 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated{
-    if (self.textView.text > 0 || self.hasAudio){
+    if (self.textView.text > 0 || self.hasAudio == true){
         self.doneButton.enabled = true;
     }
 }
@@ -63,6 +65,9 @@
             self.audioFileLocation = response;
             NSLog(@"the audio was properly set to following filepath:%@", response);
         };
+    }
+    if ([segue.identifier isEqualToString:@"TIME_CHOOSE_RECIPIENT"]) {
+     // create a new reminder, set the new VC's thing to the new reminder
     }
     
 }

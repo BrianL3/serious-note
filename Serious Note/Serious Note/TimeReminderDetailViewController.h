@@ -8,9 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "RecorderViewController.h"
+#import "Reminder.h"
 
 @interface TimeReminderDetailViewController : UIViewController
 @property (strong, nonatomic) NSDate* selectedDate;
-@property BOOL hasAudio;
-@property (strong, nonatomic) NSURL* audioFileLocation;
 @end
