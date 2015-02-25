@@ -9,6 +9,7 @@
 #import "RecipientSelectionViewController.h"
 
 @interface RecipientSelectionViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *textLabel;
 
 @end
 
@@ -17,6 +18,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    if (self.selectedReminder.textContent){
+        self.textLabel.text = self.selectedReminder.textContent;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
