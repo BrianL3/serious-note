@@ -48,6 +48,7 @@
                             <outletCollection property="gestureRecognizers" destination="HJZ-zV-VIX" appends="YES" id="6Pp-2h-ihL"/>
                         </connections>
                     </view>
+                    <navigationItem key="navigationItem" id="BfN-md-fDr"/>
                     <connections>
                         <outlet property="reminderDatePicker" destination="KAV-1F-t8M" id="Qb2-RC-K45"/>
                     </connections>
@@ -59,7 +60,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1308" y="-278"/>
+            <point key="canvasLocation" x="2120" y="-278"/>
         </scene>
         <!--Trigger Decision View Controller-->
         <scene sceneID="PbR-vU-EBu">
@@ -134,7 +135,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P2R-3P-1ov" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="down" id="flt-yx-Zmd">
                     <connections>
-                        <segue destination="ofW-FQ-qVb" kind="custom" identifier="SLIDE_TO_TIME" customClass="SlideToTimeSegue" id="fhG-Sy-3SI"/>
+                        <segue destination="759-mu-2ra" kind="custom" identifier="SLIDE_TO_TIME" customClass="SlideToTimeSegue" id="fhG-Sy-3SI"/>
                     </connections>
                 </swipeGestureRecognizer>
                 <swipeGestureRecognizer direction="up" id="wzb-g8-GR5">
@@ -161,7 +162,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Poq-lb-rJQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2208" y="412"/>
+            <point key="canvasLocation" x="2498" y="540"/>
         </scene>
         <!--Title-->
         <scene sceneID="Pkg-O0-9JY">
@@ -288,12 +289,68 @@
                     <view key="view" contentMode="scaleToFill" id="tkj-b3-Wca">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" placeholder="reminder for your future self" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I1u-d3-orW">
+                                <rect key="frame" x="198" y="114" width="204" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="204" id="Rx6-FA-irV"/>
+                                    <constraint firstAttribute="height" constant="80" id="Z7f-ro-weR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qlD-af-Hmc">
+                                <rect key="frame" x="277" y="543" width="46" height="37"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-MediumItalic" family="Avenir Next" pointSize="18"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reminder Text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ef-eQ-7fH">
+                                <rect key="frame" x="242" y="81" width="117" height="25"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-MediumItalic" family="Avenir Next" pointSize="18"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or record audio or video" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WcD-jU-ycF">
+                                <rect key="frame" x="201" y="287" width="198" height="25"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-MediumItalic" family="Avenir Next" pointSize="18"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a7t-Ww-xhN">
+                                <rect key="frame" x="250" y="320" width="101" height="30"/>
+                                <state key="normal" title="add A/V image">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="2cn-i5-av5" kind="presentation" identifier="ADD_AUDIO_TO_TIME" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="HGi-4z-Hnf"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.66166644509999994" blue="0.68544334780000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="WcD-jU-ycF" secondAttribute="centerX" id="6bT-me-Bzo"/>
+                            <constraint firstItem="I1u-d3-orW" firstAttribute="top" secondItem="NqF-YL-dR0" secondAttribute="bottom" constant="94" id="CDl-Z0-9KG"/>
+                            <constraint firstAttribute="centerX" secondItem="I1u-d3-orW" secondAttribute="centerX" id="I0b-oq-2CY"/>
+                            <constraint firstItem="I1u-d3-orW" firstAttribute="top" secondItem="0ef-eQ-7fH" secondAttribute="bottom" constant="8" id="Kbo-7p-yL7"/>
+                            <constraint firstAttribute="centerX" secondItem="0ef-eQ-7fH" secondAttribute="centerX" id="RCy-ZX-MRy"/>
+                            <constraint firstAttribute="centerX" secondItem="qlD-af-Hmc" secondAttribute="centerX" id="Y2u-ii-Ffa"/>
+                            <constraint firstItem="a7t-Ww-xhN" firstAttribute="top" secondItem="WcD-jU-ycF" secondAttribute="bottom" constant="8" id="hZx-Qo-hhZ"/>
+                            <constraint firstItem="jDC-YD-tKp" firstAttribute="top" secondItem="qlD-af-Hmc" secondAttribute="bottom" constant="20" id="ihh-Kl-H0g"/>
+                            <constraint firstItem="WcD-jU-ycF" firstAttribute="top" secondItem="I1u-d3-orW" secondAttribute="bottom" constant="93" id="mpI-FY-cC9"/>
+                            <constraint firstAttribute="centerX" secondItem="a7t-Ww-xhN" secondAttribute="centerX" id="vOn-Ec-RNe"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="doneButton" destination="qlD-af-Hmc" id="EeE-Zh-YwK"/>
+                        <outlet property="textView" destination="I1u-d3-orW" id="Vo2-wd-4NV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IZS-oG-eX9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1955" y="-278"/>
+            <point key="canvasLocation" x="2767" y="-278"/>
         </scene>
         <!--Tutorial View Controller-->
         <scene sceneID="FGk-zH-jqd">
@@ -311,7 +368,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LYk-uQ-g7Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2505" y="-321"/>
+            <point key="canvasLocation" x="2017" y="-943"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vjz-xD-JE1">
@@ -330,6 +387,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MTx-c4-1mi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1159" y="1468"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="1li-kc-sFH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="759-mu-2ra" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yMD-9A-2Lm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ofW-FQ-qVb" kind="relationship" relationship="rootViewController" id="kiu-9b-dwM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bnt-wE-R8C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1308" y="-278"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
