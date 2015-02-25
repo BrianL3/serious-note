@@ -8,7 +8,9 @@
 
 #import "TimeReminderDetailViewController.h"
 
-@interface TimeReminderDetailViewController ()
+@interface TimeReminderDetailViewController () <UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UIButton *doneButton;
+@property (weak, nonatomic) IBOutlet UITextField *textView;
 
 @end
 
@@ -17,12 +19,31 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.doneButton.enabled = false;
+    self.textView.delegate = self;
+    [self.textView becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+//MARK: TEXTFIELD DELEGATE
+
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    NSString* oldText = self.textView.text;
+    NSString* newText = [oldText stringByReplacingCharactersInRange:range withString:string];
+    self.doneButton.enabled = (newText.length > 0 || newText.length < 50);
+    
+    return true;
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [self.textView resignFirstResponder];
+    return true;
+}
+
 
 /*
 #pragma mark - Navigation

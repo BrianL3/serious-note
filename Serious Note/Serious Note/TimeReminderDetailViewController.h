@@ -10,4 +10,5 @@
 
 @interface TimeReminderDetailViewController : UIViewController
 @property (strong, nonatomic) NSDate* selectedDate;
+
 @end
