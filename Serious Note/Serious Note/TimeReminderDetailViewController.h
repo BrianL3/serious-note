@@ -11,5 +11,6 @@
 
 @interface TimeReminderDetailViewController : UIViewController
 @property (strong, nonatomic) NSDate* selectedDate;
-
+@property BOOL hasAudio;
+@property (strong, nonatomic) NSURL* audioFileLocation;
 @end

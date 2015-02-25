@@ -11,8 +11,6 @@
 @interface TimeReminderDetailViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
 @property (weak, nonatomic) IBOutlet UITextField *textView;
-@property BOOL hasAudio;
-@property (strong, nonatomic) NSURL* audioFileLocation;
 
 @end
 
@@ -58,6 +56,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"ADD_AUDIO_TO_TIME"]){
         RecorderViewController *modalVC = [[RecorderViewController alloc] init];
+        modalVC = segue.destinationViewController;
         // completion block instead of delegate pattern
         modalVC.audioSet = ^(NSURL *response) {
             self.hasAudio = true;
