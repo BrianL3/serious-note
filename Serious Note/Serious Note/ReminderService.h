@@ -10,7 +10,10 @@
 #import "Reminder.h"
 
 @interface ReminderService : NSObject
-@property (nonatomic, retain) NSString * text;
-//@property (nonatomic, retain) Audio * audio message;
+
++(id)sharedService;
+-(void)addReminder: (Reminder*)reminder;
+-(void)removeReminder: (NSString*)reminderIdentity;
+
 
 @end
