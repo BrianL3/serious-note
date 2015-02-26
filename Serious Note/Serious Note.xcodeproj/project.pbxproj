@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2F88AFA81A9BD02C00D6F072 /* AddReminderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F88AFA71A9BD02C00D6F072 /* AddReminderViewController.m */; };
+		2FA4A3DD1A9F8D220054F299 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FA4A3DC1A9F8D220054F299 /* Media.xcassets */; };
 		FA3F63E31A9E80D700F719D1 /* RecipientSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3F63E21A9E80D700F719D1 /* RecipientSelectionViewController.m */; };
 		FA44E4391A9CFA8500558CD4 /* ReminderService.m in Sources */ = {isa = PBXBuildFile; fileRef = FA44E4381A9CFA8500558CD4 /* ReminderService.m */; };
 		FA44E43F1A9D0D8C00558CD4 /* Reminder.m in Sources */ = {isa = PBXBuildFile; fileRef = FA44E43E1A9D0D8C00558CD4 /* Reminder.m */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		2F88AFA61A9BD02C00D6F072 /* AddReminderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddReminderViewController.h; sourceTree = "<group>"; };
 		2F88AFA71A9BD02C00D6F072 /* AddReminderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddReminderViewController.m; sourceTree = "<group>"; };
+		2FA4A3DC1A9F8D220054F299 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		FA3F63E11A9E80D700F719D1 /* RecipientSelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipientSelectionViewController.h; sourceTree = "<group>"; };
 		FA3F63E21A9E80D700F719D1 /* RecipientSelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipientSelectionViewController.m; sourceTree = "<group>"; };
 		FA44E4371A9CFA8500558CD4 /* ReminderService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReminderService.h; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 			children = (
 				FA5700181A9B9BE7001C54CE /* LaunchScreen.xib */,
 				FA5700161A9B9BE7001C54CE /* Images.xcassets */,
+				2FA4A3DC1A9F8D220054F299 /* Media.xcassets */,
 				FA5700131A9B9BE7001C54CE /* Main.storyboard */,
 			);
 			name = View;
@@ -301,6 +304,7 @@
 			files = (
 				FA5700151A9B9BE7001C54CE /* Main.storyboard in Resources */,
 				FA57001A1A9B9BE7001C54CE /* LaunchScreen.xib in Resources */,
+				2FA4A3DD1A9F8D220054F299 /* Media.xcassets in Resources */,
 				FA5700171A9B9BE7001C54CE /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
