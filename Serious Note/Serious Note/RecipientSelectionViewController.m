@@ -10,6 +10,9 @@
 
 @interface RecipientSelectionViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *textLabel;
+@property (weak, nonatomic) IBOutlet UILabel *userLabel;
+@property (weak, nonatomic) IBOutlet UILabel *mediaTypeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *messsageTypeLabel;
 
 @end
 
@@ -18,8 +21,33 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    if (self.selectedReminder.textContent){
-        self.textLabel.text = self.selectedReminder.textContent;
+    
+    if (self.selectedReminder.userID) {
+        self.userLabel.text = self.selectedReminder.userID;
+    }
+
+    switch (self.selectedReminder.mediaType) {
+        case 0:{
+            self.textLabel.text = self.selectedReminder.textContent;
+            self.mediaTypeLabel.text = @"Reminder Type: Text";
+            break;
+        }
+        case 1:{
+            self.mediaTypeLabel.text = @"Reminder Type: Audio";
+        }
+        default:
+            self.mediaTypeLabel.text = @"ReminderType: UNKNOWN";
+            break;
+    }
+    switch (self.selectedReminder.messageType) {
+        case 0:
+            self.messsageTypeLabel.text = @"Time-Based Reminder";
+            break;
+        case 1:
+            self.messsageTypeLabel.text = @"Location-Based Reminder";
+        default:
+            self.messsageTypeLabel.text = @"MessageType: UNKNOWN";
+            break;
     }
 }
 
