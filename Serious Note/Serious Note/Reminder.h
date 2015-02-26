@@ -29,7 +29,7 @@ typedef enum _MessageType {
     unknownBased = -1
 } MessageType;
 
-@property (strong, nonatomic) NSString* userID;
+@property NSInteger userID;
 @property int reminderID;
 @property (strong, nonatomic) NSString* textContent;
 @property (strong, nonatomic) NSData* audioContent;

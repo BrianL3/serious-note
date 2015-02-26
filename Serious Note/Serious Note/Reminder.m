@@ -19,7 +19,7 @@
         NSDate* currentTime = [NSDate date];
         self.reminderID = currentTime.timeIntervalSinceReferenceDate;
         //PLACEHOLDER: REPLACE THIS!
-        self.userID = @"bob";
+        self.userID = -1;
         //creating the time reminder
         if (audioData) {
             self.audioContent = audioData;
@@ -49,7 +49,7 @@
     NSDate* currentTime = [NSDate date];
     self.reminderID = currentTime.timeIntervalSinceReferenceDate;
     //PLACEHOLDER: REPLACE THIS!
-    self.userID = @"jim";
+    self.userID = -1;
     if (audioData) {
       self.audioContent = audioData;
       self.mediaType = audioType;
