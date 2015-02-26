@@ -7,10 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface Reminder : NSObject
 
 - (instancetype)initWithTime: (NSDate*)reminderTime withText:(NSString*)text withAudio:(NSData*)audioData withVideo:(NSData*)videoData;
+
+- (instancetype)initWithLocation: (CLLocation*) reminderLocation withText:(NSString*)text withAudio:(NSData*)audioData withVideo:(NSData*)videoData;
 
 
 typedef enum _MediaType {
