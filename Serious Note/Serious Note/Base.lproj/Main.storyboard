@@ -225,7 +225,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7NO-la-vWA">
-                                <rect key="frame" x="265" y="424" width="70" height="30"/>
+                                <rect key="frame" x="265" y="50" width="70" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="H6L-Td-o9R"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="SFJ-uA-sG0"/>
@@ -240,19 +240,25 @@
                                 </variation>
                                 <connections>
                                     <action selector="addVoice:" destination="OZN-VX-X22" eventType="touchUpInside" id="Y9T-mV-hpJ"/>
-                                    <segue destination="2cn-i5-av5" kind="presentation" id="V9F-fa-8VH"/>
+                                    <segue destination="2cn-i5-av5" kind="presentation" identifier="MAP_TO_RECORD" id="V9F-fa-8VH"/>
                                 </connections>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="OLN-X6-Q9a">
-                                <rect key="frame" x="16" y="40" width="568" height="346"/>
+                                <rect key="frame" x="16" y="202" width="568" height="346"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="f3R-Sa-jdv"/>
                                     <constraint firstAttribute="height" constant="346" id="xdw-NP-bcu"/>
                                     <constraint firstAttribute="width" constant="568" id="zEF-hh-yMJ"/>
                                 </constraints>
                             </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iKs-57-1cF">
+                                <rect key="frame" x="270" y="80" width="61" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.20312243624367582" green="0.47434204487615728" blue="0.69500519904343427" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="reminder for your future self - 50 character limit" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lFJ-dm-pZr">
-                                <rect key="frame" x="137" y="490" width="326" height="50"/>
+                                <rect key="frame" x="137" y="100" width="326" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="vsk-Z1-fMl"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="zsH-PN-thv"/>
@@ -261,23 +267,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iKs-57-1cF">
-                                <rect key="frame" x="270" y="462" width="61" height="18"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <color key="textColor" red="0.20312243624367582" green="0.47434204487615728" blue="0.69500519904343427" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="7NO-la-vWA" firstAttribute="top" secondItem="OLN-X6-Q9a" secondAttribute="bottom" constant="38" id="0bi-mN-br8"/>
-                            <constraint firstAttribute="centerX" secondItem="lFJ-dm-pZr" secondAttribute="centerX" id="0vK-NG-wn7"/>
-                            <constraint firstAttribute="centerX" secondItem="iKs-57-1cF" secondAttribute="centerX" id="Aa0-5g-Zsc"/>
-                            <constraint firstItem="OLN-X6-Q9a" firstAttribute="top" secondItem="0TQ-2c-egg" secondAttribute="bottom" constant="20" id="B0L-63-Ok8"/>
-                            <constraint firstAttribute="centerX" secondItem="OLN-X6-Q9a" secondAttribute="centerX" id="HmC-pM-x9X"/>
-                            <constraint firstItem="lFJ-dm-pZr" firstAttribute="top" secondItem="iKs-57-1cF" secondAttribute="bottom" constant="10" id="VeH-LW-sbn"/>
-                            <constraint firstAttribute="centerX" secondItem="7NO-la-vWA" secondAttribute="centerX" id="WTq-l1-Tgq"/>
-                            <constraint firstItem="iKs-57-1cF" firstAttribute="top" secondItem="7NO-la-vWA" secondAttribute="bottom" constant="8" id="znm-T3-2FB"/>
+                            <constraint firstItem="7NO-la-vWA" firstAttribute="centerX" secondItem="iKs-57-1cF" secondAttribute="centerX" id="GoO-72-rPf"/>
+                            <constraint firstItem="iKs-57-1cF" firstAttribute="top" secondItem="0TQ-2c-egg" secondAttribute="bottom" constant="60" id="J31-s3-p6w"/>
+                            <constraint firstAttribute="centerX" secondItem="7NO-la-vWA" secondAttribute="centerX" id="RiY-ZW-Gp8"/>
+                            <constraint firstAttribute="centerX" secondItem="lFJ-dm-pZr" secondAttribute="centerX" id="Uh8-Wc-OHq"/>
+                            <constraint firstItem="lFJ-dm-pZr" firstAttribute="top" secondItem="7NO-la-vWA" secondAttribute="bottom" constant="20" id="X5p-db-pZz"/>
+                            <constraint firstItem="7NO-la-vWA" firstAttribute="top" secondItem="0TQ-2c-egg" secondAttribute="bottom" constant="30" id="cH5-rV-ctw"/>
+                            <constraint firstItem="jUH-oT-YgD" firstAttribute="top" secondItem="OLN-X6-Q9a" secondAttribute="bottom" constant="8" id="dpt-0U-Z1z"/>
+                            <constraint firstAttribute="centerX" secondItem="OLN-X6-Q9a" secondAttribute="centerX" id="ghI-HX-mzA"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -492,6 +492,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="jdf-Wj-Cud"/>
-        <segue reference="HGi-4z-Hnf"/>
+        <segue reference="V9F-fa-8VH"/>
     </inferredMetricsTieBreakers>
 </document>
