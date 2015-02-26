@@ -13,7 +13,6 @@
 
 @interface LocationPickerViewController () <CLLocationManagerDelegate, MKMapViewDelegate>
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
-
 @property (strong, nonatomic) MKPointAnnotation *selectedAnnotation;
 
 @end
@@ -24,16 +23,13 @@
 {
   [super viewDidLoad];
   
-  CLLocationCoordinate2D workCoordinate = CLLocationCoordinate2DMake(47.6235481, -122.336212); // Code Fellows location
-  
-  MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance (workCoordinate, 1.0 * METERS_PER_MILE, 1.0 *METERS_PER_MILE);
-  [self.mapView setRegion:region animated:true];
-  
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reminderAdded:) name:@"ReminderAdded" object:nil];
   
   //MARK: location-related code
   self.locationManager =[CLLocationManager new];
   self.locationManager.delegate = self;
+  [self.locationManager startUpdatingLocation];
+
   self.mapView.delegate = self;
   self.mapView.rotateEnabled = false; // don't spin the map when you rotate the phone
   
@@ -85,14 +81,26 @@
   
 } // viewDidLoad()
 
-- (void)viewWillAppear:(BOOL)animated
+
+- (void)viewDidAppear:(BOOL)animated
 {
-  [super viewWillAppear:animated];
+  [super viewDidAppear:animated];
+  
+  // show all the monitored regions
   
   NSArray *monitoredRegions = [self.locationManager.monitoredRegions allObjects];
   NSLog(@"Number of monitored regions: %lu", (unsigned long)monitoredRegions.count);
-
-} // viewWilAppear()
+  
+  for (CLCircularRegion *monitoredRegion in monitoredRegions)
+  {
+    //display the region on the map as an annotation
+    MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+    annotation.coordinate = monitoredRegion.center;
+    annotation.title = monitoredRegion.identifier;
+    [self.mapView addAnnotation: annotation];
+  } // for monitoredRegion
+  
+} // viewDidAppear()
 
 
 - (void) mapLongPressed:(id) sender
@@ -130,10 +138,19 @@
 - (void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
   // get the first element in the location array
-  CLLocation *location = locations.firstObject;
   
-  // we'll just log it for now
-  NSLog(@"latitude: %f and longitude: %f", location.coordinate.latitude, location.coordinate.longitude);
+  // comment out next line for use on a real device
+  CLLocationCoordinate2D workCoordinate = CLLocationCoordinate2DMake(47.6235481, -122.336212); // Code Fellows location
+  
+  // comment out the next two lines for use on a simulator
+  //CLLocation *currLocation = [self.locationManager location];
+  //CLLocationCoordinate2D workCoordinate = currLocation.coordinate;
+  
+  MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance (workCoordinate, 1.0 * METERS_PER_MILE, 1.0 *METERS_PER_MILE);
+  [self.mapView setRegion:region animated:true];
+
+  
+  NSLog(@"latitude: %f and longitude: %f", workCoordinate.latitude, workCoordinate.longitude);
 } // locationManager()
 
 // set up the pin as an annotation view
@@ -147,13 +164,16 @@
   
   // set some of the pin's properties
   annotationView.animatesDrop = true;
-  annotationView.pinColor = MKPinAnnotationColorGreen;
   
   // show the annotation's data when press on the pin's head
   annotationView.canShowCallout = true;
   
-  // create a button that will display a new view for the location's reminder when pressed
-  annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeContactAdd];
+  // if we have a new annotation, create a button that will display a new view for the location's reminder when pressed
+  if ([annotation.title isEqualToString:@"New Point of Interest"])
+  {
+    annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeContactAdd];
+    annotationView.pinColor = MKPinAnnotationColorGreen;
+  }
   
   return annotationView;
 } // mapView()
