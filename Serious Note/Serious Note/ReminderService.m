@@ -91,5 +91,57 @@
     
 }
 
+-(void)getReminder: (int)reminderID completionHandler:(void (^)(Reminder *result, NSString *error))completionHandler {
+    //our server URL
+    NSString* serverURLString = self.apiURL;
+    
+    serverURLString = [serverURLString stringByAppendingString:[NSString stringWithFormat: @"%d",reminderID ]];
+    NSURL* serverURL = [[NSURL alloc] initWithString:serverURLString];
+    
+    NSMutableURLRequest* getRequest = [[NSMutableURLRequest alloc] initWithURL:serverURL];
+    getRequest.HTTPMethod = @"GET";
+    [getRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    NSURLSessionDataTask *getDataTask = [self.urlSession dataTaskWithRequest:getRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if (!error){
+            NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
+            NSInteger statusCode = httpResponse.statusCode;
+            switch (statusCode) {
+                case 200 ... 299:{
+                    NSLog(@"200 Status OK");
+                    // serialise the data returned into Reminder object
+                    NSError* error;
+                    NSDictionary* jsonDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+                    if (!error) {
+                        Reminder* resultingReminder = [[Reminder alloc] initWithJSON:jsonDictionary];
+                        completionHandler(resultingReminder, nil);
+                    }else{
+                        NSLog(@"GetReminder could not serialize the JSON data returned.  Error: %@", error.localizedDescription);
+                        NSString* errorString = [NSString stringWithFormat:@"GetReminder could not serialize the JSON data returned. Error: %@", error.localizedDescription];
+                        completionHandler(nil, errorString);
+                    }
+                    break;
+                    }
+                case 300 ... 399:{
+                    NSString* errorString = [NSString stringWithFormat:@"GET request failed, status code: %ld", (long)statusCode];
+                    completionHandler(nil, errorString);
+                    break;
+                }
+                case 400 ... 499:{
+                    NSString* errorString = [NSString stringWithFormat:@"GET request failed, status code: %ld", (long)statusCode];
+                    completionHandler(nil, errorString);
+                    break;
+                }
+                default:{
+                    NSString* errorString = [NSString stringWithFormat:@"GET request failed, status code: %ld", (long)statusCode];
+                    completionHandler(nil, errorString);
+                    break;
+                }
+            }
+        }
+    }];
+    [getDataTask resume];
+
+}
 
 @end

@@ -14,6 +14,6 @@
 +(id)sharedService;
 -(void)addReminder: (Reminder*)reminder;
 -(void)removeReminder: (NSString*)reminderIdentity;
-
+-(void)getReminder: (int)reminderID completionHandler:(void (^)(Reminder *result, NSString *error))completionHandler;
 
 @end

@@ -71,12 +71,21 @@
 
 //serial a JSON blob into a reminder
 - (instancetype)initWithJSON: (NSDictionary*)jsonDictionary{
+
     self = [super init];
     if (self) {
-        // JSON serialize all the shit here
+        self.reminderID = (int)jsonDictionary[@"reminderID"];
+        self.userID = (NSInteger)jsonDictionary[@"userID"];
+        self.mediaType = (MediaType)jsonDictionary[@"mediaType"];
+        self.messageType = (MessageType)jsonDictionary[@"messageType"];
+        if (self.messageType == textType) {
+            self.textContent = (NSString*)jsonDictionary[@"textContent"];
+        }
+        if (self.messageType == audioType) {
+            self.audioContent = (NSData*)jsonDictionary[@"mediaContent"];
+        }
     }
     return self;
 }
-
 
 @end
