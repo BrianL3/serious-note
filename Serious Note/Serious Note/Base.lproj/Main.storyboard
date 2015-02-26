@@ -442,6 +442,15 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J22-r6-wk4">
+                                <rect key="frame" x="16" y="175" width="41" height="30"/>
+                                <state key="normal" title="POST">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="postButtonPressed:" destination="4PH-77-U0d" eventType="touchUpInside" id="Bmv-JH-pBj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -450,18 +459,21 @@
                             <constraint firstItem="lXc-sG-MHX" firstAttribute="top" secondItem="Awo-Wu-xAn" secondAttribute="bottom" constant="8" id="94y-p1-eSS"/>
                             <constraint firstItem="51Y-BS-xtO" firstAttribute="leading" secondItem="VS3-3g-rwq" secondAttribute="leadingMargin" id="Cpa-2t-77H"/>
                             <constraint firstItem="lXc-sG-MHX" firstAttribute="leading" secondItem="VS3-3g-rwq" secondAttribute="leadingMargin" id="E2L-td-JvG"/>
+                            <constraint firstItem="J22-r6-wk4" firstAttribute="top" secondItem="lXc-sG-MHX" secondAttribute="bottom" constant="8" id="MqW-Co-BIB"/>
                             <constraint firstItem="09P-N5-7mu" firstAttribute="top" secondItem="hNj-Nv-sxw" secondAttribute="bottom" constant="39" id="OcQ-eo-KQA"/>
                             <constraint firstItem="Awo-Wu-xAn" firstAttribute="top" secondItem="51Y-BS-xtO" secondAttribute="bottom" constant="8" id="VzY-Lj-jyC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="lXc-sG-MHX" secondAttribute="trailing" constant="8" id="gdl-Ip-UMt"/>
                             <constraint firstItem="Awo-Wu-xAn" firstAttribute="leading" secondItem="VS3-3g-rwq" secondAttribute="leadingMargin" id="hJt-PD-fLN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="51Y-BS-xtO" secondAttribute="trailing" constant="8" id="hod-l0-nBl"/>
                             <constraint firstItem="51Y-BS-xtO" firstAttribute="top" secondItem="09P-N5-7mu" secondAttribute="bottom" constant="8" id="hqR-1o-NqB"/>
+                            <constraint firstItem="J22-r6-wk4" firstAttribute="leading" secondItem="VS3-3g-rwq" secondAttribute="leadingMargin" id="sRN-sd-oVy"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Awo-Wu-xAn" secondAttribute="trailing" constant="8" id="uqJ-7k-3dl"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="mediaTypeLabel" destination="Awo-Wu-xAn" id="bwC-Gf-JFL"/>
                         <outlet property="messsageTypeLabel" destination="lXc-sG-MHX" id="YRL-QF-2yp"/>
+                        <outlet property="postButton" destination="J22-r6-wk4" id="t3N-DQ-PO1"/>
                         <outlet property="textLabel" destination="09P-N5-7mu" id="nQo-fr-zZL"/>
                         <outlet property="userLabel" destination="51Y-BS-xtO" id="0lM-i7-5Bf"/>
                     </connections>
