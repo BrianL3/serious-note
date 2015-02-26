@@ -15,6 +15,9 @@
 
 - (instancetype)initWithLocation: (CLLocation*) reminderLocation withText:(NSString*)text withAudio:(NSData*)audioData withVideo:(NSData*)videoData;
 
+- (instancetype)initWithJSON: (NSDictionary*)jsonDictionary;
+
+
 
 typedef enum _MediaType {
     textType = 0,
