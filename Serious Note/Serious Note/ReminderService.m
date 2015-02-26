@@ -37,15 +37,28 @@
 
 
 -(void)addReminder: (Reminder*)reminder{
+    
+    NSLog(@"%d", reminder.reminderID);
+    
     //our server URL
     NSString* serverURLString = self.apiURL;
-    serverURLString = [serverURLString stringByAppendingString:reminder.userID];
+    //serverURLString = [serverURLString stringByAppendingString:reminder.userID];
     NSURL* serverURL = [[NSURL alloc] initWithString:serverURLString];
     
     //user the network controller singleton to POST a reminder
-    NSString* bodyString = [NSString stringWithFormat:@"{\"reminderID\":%d,\"textContent\":%@}", reminder.reminderID, reminder.textContent];
+    NSString* bodyString = [NSString stringWithFormat:@"{\"reminderID\":%d,\"userID\":%@, \"textContent\":\"%@\"}", reminder.reminderID, reminder.userID, reminder.textContent];
+    
+    /*
+     "reminderID": Number
+     "userID": Number
+     "textContent": "String"
+     "mediaType": Number
+     "mediaContent": "Buffer"
+     "recipientID": Number
+     "messageType": Number
+     */
 
-    NSData* bodyData = [bodyString dataUsingEncoding:(NSASCIIStringEncoding)];
+    NSData* bodyData = [bodyString dataUsingEncoding:(NSUTF8StringEncoding)];
     
     // a little error checking
     NSUInteger length  = bodyData.length;
@@ -55,7 +68,7 @@
     postRequest.HTTPMethod = @"POST";
     NSString* lengthString = [NSString stringWithFormat:@"%lu", length];
     [postRequest setValue:lengthString forHTTPHeaderField:@"Content-Length"];
-    [postRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [postRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     postRequest.HTTPBody = bodyData;
     
     NSURLSessionDataTask *postDataTask = [self.urlSession dataTaskWithRequest:postRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
@@ -66,7 +79,12 @@
                 case 200 ... 299:
                     NSLog(@"200 Status OK");
                     break;
-                    
+                case 300 ... 399:
+                    NSLog(@"POST Failed, status code: %ld", statusCode);
+                    break;
+                case 400 ... 499:
+                    NSLog(@"POST Failed, status code: %ld", (long)statusCode);
+                    break;
                 default:
                     NSLog(@"Shit is fucked, try again");
                     break;
