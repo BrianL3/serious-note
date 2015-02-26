@@ -251,14 +251,14 @@
                                     <constraint firstAttribute="width" constant="568" id="zEF-hh-yMJ"/>
                                 </constraints>
                             </mapView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Add Text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iKs-57-1cF">
-                                <rect key="frame" x="394" y="108" width="66" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Text" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iKs-57-1cF">
+                                <rect key="frame" x="375" y="108" width="61" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" red="0.20312243624367582" green="0.47434204487615728" blue="0.69500519904343427" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="reminder for your future self - 50 character limit" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lFJ-dm-pZr">
-                                <rect key="frame" x="258" y="144" width="326" height="50"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="reminder for your future self - 50 character limit" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lFJ-dm-pZr">
+                                <rect key="frame" x="242" y="144" width="326" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="vsk-Z1-fMl"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="zsH-PN-thv"/>
@@ -270,15 +270,22 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="lFJ-dm-pZr" firstAttribute="trailing" secondItem="0bF-HO-5HY" secondAttribute="trailingMargin" constant="-16" id="2Xo-Jx-qJq"/>
                             <constraint firstItem="OLN-X6-Q9a" firstAttribute="top" secondItem="lFJ-dm-pZr" secondAttribute="bottom" constant="8" id="8O7-Ie-1kK"/>
                             <constraint firstItem="iKs-57-1cF" firstAttribute="centerX" secondItem="lFJ-dm-pZr" secondAttribute="centerX" constant="6" id="Gue-zR-cKD"/>
                             <constraint firstItem="7NO-la-vWA" firstAttribute="top" secondItem="0TQ-2c-egg" secondAttribute="bottom" constant="85" id="Kty-kV-BT3"/>
                             <constraint firstItem="jUH-oT-YgD" firstAttribute="top" secondItem="OLN-X6-Q9a" secondAttribute="bottom" constant="8" id="OIA-Tf-1D8"/>
                             <constraint firstItem="iKs-57-1cF" firstAttribute="centerY" secondItem="7NO-la-vWA" secondAttribute="centerY" constant="-3" id="Wc4-zL-pt4"/>
+                            <constraint firstItem="lFJ-dm-pZr" firstAttribute="centerX" secondItem="iKs-57-1cF" secondAttribute="centerX" id="Wv8-Pz-xfI"/>
                             <constraint firstItem="OLN-X6-Q9a" firstAttribute="trailing" secondItem="0bF-HO-5HY" secondAttribute="trailingMargin" id="ewr-bF-MKf"/>
                             <constraint firstItem="7NO-la-vWA" firstAttribute="leading" secondItem="0bF-HO-5HY" secondAttribute="leadingMargin" constant="80" id="rWw-SG-Vge"/>
                             <constraint firstItem="OLN-X6-Q9a" firstAttribute="leading" secondItem="0bF-HO-5HY" secondAttribute="leadingMargin" id="uuG-5F-Nmo"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Gue-zR-cKD"/>
+                            </mask>
+                        </variation>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Title" id="gWP-B9-qwB">

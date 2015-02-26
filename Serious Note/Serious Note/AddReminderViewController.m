@@ -129,7 +129,11 @@
     {
       if (self.textField.text.length == 0)
       {
-        self.textField.text = @"Generic Reminder";
+        // create a unique string to use as a title by appending the last 5 digits of the time to the word "Generic"
+        NSDate* currentTime = [NSDate date];
+        int CurrTime = currentTime.timeIntervalSinceReferenceDate;
+        NSString *addOn = [NSString stringWithFormat:@"Genric%d", CurrTime % 100000]; // get the last 5 digits
+        self.textField.text = addOn;
       }
       
       // create a 200m-diameter region around the pin
