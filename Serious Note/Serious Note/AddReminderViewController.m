@@ -8,6 +8,7 @@
 
 #import "AddReminderViewController.h"
 #import "RecorderViewController.h"
+#import "RecipientSelectionViewController.h"
 
 #define METERS_PER_MILE 1609.344
 
@@ -19,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (nonatomic) BOOL hasAudio;
 @property (strong, nonatomic) NSURL *audioFileLocation;
+@property (strong, nonatomic) Reminder *myReminder;
 
 @end
 
@@ -68,7 +70,8 @@
     
     // send a notification to any observers that a reminder has been added
     [[NSNotificationCenter defaultCenter] postNotificationName:@"ReminderAdded" object:self userInfo:@{@"reminder": region, @"title" : self.textField.text}];
-    [self.navigationController popViewControllerAnimated:true];
+    
+    // segue to the Recipient Selection VC, push reminder
     
   } // if monitoring is available
   
@@ -129,7 +132,29 @@
       self.audioFileLocation = response;
       NSLog(@"the audio was properly set to following filepath:%@", response);
     };
-  }
+  } // segue MAP_TO_RECORD
+  
+  if ([segue.identifier isEqualToString:@"LOCATION_CHOOSE_RECIPIENT"]) {
+    RecipientSelectionViewController* destinationVC = [[RecipientSelectionViewController alloc] init];
+    destinationVC = segue.destinationViewController;
+    
+    // at what location will the reminder be triggered?
+    CLLocation *reminderLocation = [[CLLocation alloc] initWithLatitude:self.annotation.coordinate.latitude longitude:self.annotation.coordinate.longitude];
+    
+    if (self.textField.text.length > 0) // reminder contains text
+    {
+      self.myReminder = [[Reminder alloc] initWithLocation: reminderLocation withText:self.annotation.title withAudio:nil withVideo:nil];
+    }
+    
+    else
+    {
+      // NSLog(@"created an audio reminder: %@", audioData.description);
+      self.myReminder = [[Reminder alloc] initWithLocation: reminderLocation withText:nil withAudio:(NSData*)self.audioFileLocation withVideo:nil];
+    }
+    destinationVC.selectedReminder = self.myReminder;
+    
+  } // segue LOCATION_CHOOSE_RECIPIENT
+
 }
 
 @end
