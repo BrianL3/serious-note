@@ -7,6 +7,7 @@
 //
 
 #import "AddReminderViewController.h"
+#import "RecorderViewController.h"
 
 #define METERS_PER_MILE 1609.344
 
@@ -16,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *doneButton;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
+@property (nonatomic) BOOL hasAudio;
+@property (strong, nonatomic) NSURL *audioFileLocation;
 
 @end
 
@@ -115,5 +118,18 @@
   [self.textField resignFirstResponder];
   return true;
 } // textFieldShouldReturn()
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+  if ([segue.identifier isEqualToString:@"MAP_TO_RECORD"]){
+    RecorderViewController *modalVC = [[RecorderViewController alloc] init];
+    modalVC = segue.destinationViewController;
+    // completion block instead of delegate pattern
+    modalVC.audioSet = ^(NSURL *response) {
+      self.hasAudio = true;
+      self.audioFileLocation = response;
+      NSLog(@"the audio was properly set to following filepath:%@", response);
+    };
+  }
+}
 
 @end

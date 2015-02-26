@@ -94,9 +94,9 @@
   for (CLCircularRegion *monitoredRegion in monitoredRegions)
   {
     //display the region on the map as an annotation
-    // create the annotation to mark the point on the map
-    MKPointAnnotation *annotation = [MKPointAnnotation new];
+    MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
     annotation.coordinate = monitoredRegion.center;
+    annotation.title = monitoredRegion.identifier;
     [self.mapView addAnnotation: annotation];
   } // for monitoredRegion
   
@@ -164,13 +164,16 @@
   
   // set some of the pin's properties
   annotationView.animatesDrop = true;
-  annotationView.pinColor = MKPinAnnotationColorGreen;
   
   // show the annotation's data when press on the pin's head
   annotationView.canShowCallout = true;
   
-  // create a button that will display a new view for the location's reminder when pressed
-  annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeContactAdd];
+  // if we have a new annotation, create a button that will display a new view for the location's reminder when pressed
+  if ([annotation.title isEqualToString:@"New Point of Interest"])
+  {
+    annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeContactAdd];
+    annotationView.pinColor = MKPinAnnotationColorGreen;
+  }
   
   return annotationView;
 } // mapView()

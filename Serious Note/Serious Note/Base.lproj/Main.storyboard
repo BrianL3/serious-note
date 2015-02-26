@@ -240,7 +240,7 @@
                                 </variation>
                                 <connections>
                                     <action selector="addVoice:" destination="OZN-VX-X22" eventType="touchUpInside" id="Y9T-mV-hpJ"/>
-                                    <segue destination="2cn-i5-av5" kind="presentation" id="V9F-fa-8VH"/>
+                                    <segue destination="2cn-i5-av5" kind="presentation" identifier="MAP_TO_RECORD" id="V9F-fa-8VH"/>
                                 </connections>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="OLN-X6-Q9a">
