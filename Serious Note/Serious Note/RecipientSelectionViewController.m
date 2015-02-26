@@ -7,12 +7,14 @@
 //
 
 #import "RecipientSelectionViewController.h"
+#import "ReminderService.h"
 
 @interface RecipientSelectionViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *textLabel;
 @property (weak, nonatomic) IBOutlet UILabel *userLabel;
 @property (weak, nonatomic) IBOutlet UILabel *mediaTypeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *messsageTypeLabel;
+@property (weak, nonatomic) IBOutlet UIButton *postButton;
 
 @end
 
@@ -59,6 +61,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)postButtonPressed:(id)sender {
+    [[ReminderService sharedService] addReminder:self.selectedReminder];
+    NSLog(@"The POST button fired.");
 }
 
 /*
