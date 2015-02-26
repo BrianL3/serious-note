@@ -25,7 +25,7 @@
     // Do any additional setup after loading the view.
     
     if (self.selectedReminder.userID) {
-        self.userLabel.text = self.selectedReminder.userID;
+        self.userLabel.text = [NSString stringWithFormat: @"UserPhone#: %ld", self.selectedReminder.userID];
     }
 
     switch (self.selectedReminder.mediaType) {

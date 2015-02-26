@@ -46,7 +46,10 @@
     NSURL* serverURL = [[NSURL alloc] initWithString:serverURLString];
     
     //user the network controller singleton to POST a reminder
-    NSString* bodyString = [NSString stringWithFormat:@"{\"reminderID\":%d,\"userID\":%@, \"textContent\":\"%@\"}", reminder.reminderID, reminder.userID, reminder.textContent];
+    //NSString* contentDataString = [[NSString alloc] initWithData:reminder.audioContent encoding:NSUTF8StringEncoding];
+
+    
+    NSString* bodyString = [NSString stringWithFormat:@"{\"reminderID\":%d,\"userID\":%ld, \"textContent\":\"%@\",\"mediaType\":%d,\"mediaContent\":\"%@\"}", reminder.reminderID, reminder.userID, reminder.textContent, reminder.mediaType, reminder.audioContent];
     
     /*
      "reminderID": Number
