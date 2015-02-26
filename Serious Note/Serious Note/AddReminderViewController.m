@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (nonatomic) BOOL hasAudio;
 @property (strong, nonatomic) NSURL *audioFileLocation;
+@property (strong, nonatomic) NSData *audioData;
 @property (strong, nonatomic) Reminder *myReminder;
 
 @end
@@ -37,7 +38,7 @@
   
   [self.mapView addAnnotation: self.annotation];
   
-  NSLog(@"lat: %f, long: %f", mapCoord.latitude, mapCoord.longitude);
+  //NSLog(@"lat: %f, long: %f", mapCoord.latitude, mapCoord.longitude);
   
   // set up textView stuff
   self.doneButton.enabled = false;
@@ -107,6 +108,16 @@
     modalVC.audioSet = ^(NSURL *response) {
       self.hasAudio = true;
       self.audioFileLocation = response;
+      if(self.audioFileLocation){
+        NSError * __autoreleasing tmpError;
+        
+        self.audioData = [[NSData alloc] initWithContentsOfURL:self.audioFileLocation options: NSDataReadingMapped error:&tmpError];
+        //   audioData = [[NSData alloc] initWithContentsOfURL:self.audioFileLocation];
+        if (tmpError) {
+          NSLog(@"%@", tmpError.localizedDescription);
+        }
+      }
+      
       NSLog(@"the audio was properly set to following filepath:%@", response);
     };
   } // segue MAP_TO_RECORD
@@ -147,7 +158,7 @@
     else
     {
       // NSLog(@"created an audio reminder: %@", audioData.description);
-      self.myReminder = [[Reminder alloc] initWithLocation: reminderLocation withText:nil withAudio:(NSData*)self.audioFileLocation withVideo:nil];
+      self.myReminder = [[Reminder alloc] initWithLocation: reminderLocation withText:nil withAudio:(NSData*)self.audioData withVideo:nil];
     }
     destinationVC.selectedReminder = self.myReminder;
     
