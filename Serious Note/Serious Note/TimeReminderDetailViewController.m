@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *textView;
 @property BOOL hasAudio;
 @property (strong, nonatomic) NSURL* audioFileLocation;
+@property (strong, nonatomic) NSData* audioData;
 @property (strong, nonatomic) Reminder* myReminder;
 @end
 
@@ -83,18 +84,27 @@
         modalVC.audioSet = ^(NSURL *response) {
             self.hasAudio = true;
             self.audioFileLocation = response;
+            if(self.audioFileLocation){
+                NSError * __autoreleasing tmpError;
+                
+                self.audioData = [[NSData alloc] initWithContentsOfURL:self.audioFileLocation options: NSDataReadingMapped error:&tmpError];
+                //   audioData = [[NSData alloc] initWithContentsOfURL:self.audioFileLocation];
+                if (tmpError) {
+                    NSLog(@"%@", tmpError.localizedDescription);
+                }
+            }
             NSLog(@"the audio was properly set to following filepath:%@", response);
         };
     }
     if ([segue.identifier isEqualToString:@"TIME_CHOOSE_RECIPIENT"]) {
         RecipientSelectionViewController* destinationVC = [[RecipientSelectionViewController alloc] init];
         destinationVC = segue.destinationViewController;
-        NSData* audioData;
-        if(self.audioFileLocation){
-            audioData = [[NSData alloc] initWithContentsOfURL:self.audioFileLocation];
+        if (self.textView.text.length > 0){
+            self.myReminder = [[Reminder alloc] initWithTime:self.selectedDate withText:self.textView.text withAudio: self.audioData withVideo:nil];
+        }else{
+//            NSLog(@"created an audio reminder: @%", audioData.description);
+            self.myReminder = [[Reminder alloc] initWithTime:self.selectedDate withText:nil withAudio: self.audioData withVideo:nil];
         }
-        
-        self.myReminder = [[Reminder alloc] initWithTime:self.selectedDate withText:self.textView.text withAudio: audioData withVideo:nil];
         destinationVC.selectedReminder = self.myReminder;
         
      // create a new reminder, set the new VC's thing to the new reminder

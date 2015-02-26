@@ -418,17 +418,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="09P-N5-7mu">
-                                <rect key="frame" x="40" y="160" width="278" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="51Y-BS-xtO">
+                                <rect key="frame" x="16" y="88" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Awo-Wu-xAn">
+                                <rect key="frame" x="16" y="117" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lXc-sG-MHX">
+                                <rect key="frame" x="16" y="146" width="560" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="09P-N5-7mu">
+                                <rect key="frame" x="16" y="59" width="560" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="09P-N5-7mu" firstAttribute="leading" secondItem="VS3-3g-rwq" secondAttribute="leadingMargin" id="2nj-Dx-dkj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="09P-N5-7mu" secondAttribute="trailing" constant="8" id="4fi-yZ-4vW"/>
+                            <constraint firstItem="lXc-sG-MHX" firstAttribute="top" secondItem="Awo-Wu-xAn" secondAttribute="bottom" constant="8" id="94y-p1-eSS"/>
+                            <constraint firstItem="51Y-BS-xtO" firstAttribute="leading" secondItem="VS3-3g-rwq" secondAttribute="leadingMargin" id="Cpa-2t-77H"/>
+                            <constraint firstItem="lXc-sG-MHX" firstAttribute="leading" secondItem="VS3-3g-rwq" secondAttribute="leadingMargin" id="E2L-td-JvG"/>
+                            <constraint firstItem="09P-N5-7mu" firstAttribute="top" secondItem="hNj-Nv-sxw" secondAttribute="bottom" constant="39" id="OcQ-eo-KQA"/>
+                            <constraint firstItem="Awo-Wu-xAn" firstAttribute="top" secondItem="51Y-BS-xtO" secondAttribute="bottom" constant="8" id="VzY-Lj-jyC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lXc-sG-MHX" secondAttribute="trailing" constant="8" id="gdl-Ip-UMt"/>
+                            <constraint firstItem="Awo-Wu-xAn" firstAttribute="leading" secondItem="VS3-3g-rwq" secondAttribute="leadingMargin" id="hJt-PD-fLN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="51Y-BS-xtO" secondAttribute="trailing" constant="8" id="hod-l0-nBl"/>
+                            <constraint firstItem="51Y-BS-xtO" firstAttribute="top" secondItem="09P-N5-7mu" secondAttribute="bottom" constant="8" id="hqR-1o-NqB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Awo-Wu-xAn" secondAttribute="trailing" constant="8" id="uqJ-7k-3dl"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="mediaTypeLabel" destination="Awo-Wu-xAn" id="bwC-Gf-JFL"/>
+                        <outlet property="messsageTypeLabel" destination="lXc-sG-MHX" id="YRL-QF-2yp"/>
                         <outlet property="textLabel" destination="09P-N5-7mu" id="nQo-fr-zZL"/>
+                        <outlet property="userLabel" destination="51Y-BS-xtO" id="0lM-i7-5Bf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gnr-lb-EDm" userLabel="First Responder" sceneMemberID="firstResponder"/>
