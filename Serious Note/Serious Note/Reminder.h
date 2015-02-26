@@ -15,14 +15,14 @@
 
 typedef enum _MediaType {
     textType = 0,
-    audioType,
-    videoType,
+    audioType = 1,
+    videoType = 2,
     unknownType = -1
 } MediaType;
 
 typedef enum _MessageType {
     timeBased = 0,
-    locationBased,
+    locationBased = 1,
     unknownBased = -1
 } MessageType;
 

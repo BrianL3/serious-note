@@ -34,6 +34,11 @@
         }
         case 1:{
             self.mediaTypeLabel.text = @"Reminder Type: Audio";
+            break;
+        }
+        case 2:{
+            self.mediaTypeLabel.text = @"Reminder Type: Video";
+            break;
         }
         default:
             self.mediaTypeLabel.text = @"ReminderType: UNKNOWN";
