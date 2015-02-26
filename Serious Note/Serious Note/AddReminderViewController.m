@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 @property (nonatomic) BOOL hasAudio;
 @property (strong, nonatomic) NSURL *audioFileLocation;
+@property (strong, nonatomic) NSData *audioData;
 @property (strong, nonatomic) Reminder *myReminder;
 
 @end
@@ -37,7 +38,7 @@
   
   [self.mapView addAnnotation: self.annotation];
   
-  NSLog(@"lat: %f, long: %f", mapCoord.latitude, mapCoord.longitude);
+  //NSLog(@"lat: %f, long: %f", mapCoord.latitude, mapCoord.longitude);
   
   // set up textView stuff
   self.doneButton.enabled = false;
@@ -50,32 +51,9 @@
   // put code to add voice reminder here
   
   NSLog(@"Add Voice button pressed");
+  self.doneButton.enabled = true;
   
 } // addVoice()
-
-- (IBAction)doneButtonPressed:(id)sender {
-  // make sure that monitoring is available
-  if([CLLocationManager isMonitoringAvailableForClass:[CLCircularRegion class]])
-  {
-    if (self.textField.text.length == 0)
-    {
-      self.textField.text = @"Generic Reminder";
-    }
-    
-    // create a 200m-diameter region around the pin
-    CLCircularRegion *region = [[CLCircularRegion alloc] initWithCenter:self.annotation.coordinate radius:200 identifier:self.textField.text];
-    
-    // start checking to see if user enters region
-    [self.locationManager startMonitoringForRegion:region];
-    
-    // send a notification to any observers that a reminder has been added
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"ReminderAdded" object:self userInfo:@{@"reminder": region, @"title" : self.textField.text}];
-    
-    // segue to the Recipient Selection VC, push reminder
-    
-  } // if monitoring is available
-  
-} // pressedAddText()
 
 // set up the pin as an annotation view
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
@@ -130,18 +108,49 @@
     modalVC.audioSet = ^(NSURL *response) {
       self.hasAudio = true;
       self.audioFileLocation = response;
+      if(self.audioFileLocation){
+        NSError * __autoreleasing tmpError;
+        
+        self.audioData = [[NSData alloc] initWithContentsOfURL:self.audioFileLocation options: NSDataReadingMapped error:&tmpError];
+        //   audioData = [[NSData alloc] initWithContentsOfURL:self.audioFileLocation];
+        if (tmpError) {
+          NSLog(@"%@", tmpError.localizedDescription);
+        }
+      }
+      
       NSLog(@"the audio was properly set to following filepath:%@", response);
     };
   } // segue MAP_TO_RECORD
   
-  if ([segue.identifier isEqualToString:@"LOCATION_CHOOSE_RECIPIENT"]) {
+  if ([segue.identifier isEqualToString:@"LOCATION_CHOOSE_RECIPIENT"])
+  {
+    // make sure that monitoring is available
+    if([CLLocationManager isMonitoringAvailableForClass:[CLCircularRegion class]])
+    {
+      if (self.textField.text.length == 0)
+      {
+        self.textField.text = @"Generic Reminder";
+      }
+      
+      // create a 200m-diameter region around the pin
+      CLCircularRegion *region = [[CLCircularRegion alloc] initWithCenter:self.annotation.coordinate radius:200 identifier:self.textField.text];
+      
+      // start checking to see if user enters region
+      [self.locationManager startMonitoringForRegion:region];
+      
+      // send a notification to any observers that a reminder has been added
+      [[NSNotificationCenter defaultCenter] postNotificationName:@"ReminderAdded" object:self userInfo:@{@"reminder": region, @"title" : self.textField.text}];
+    } // add region to monitored regions
+    
+    // segue to the Recipient Selection VC, push reminder
+    
     RecipientSelectionViewController* destinationVC = [[RecipientSelectionViewController alloc] init];
     destinationVC = segue.destinationViewController;
     
     // at what location will the reminder be triggered?
     CLLocation *reminderLocation = [[CLLocation alloc] initWithLatitude:self.annotation.coordinate.latitude longitude:self.annotation.coordinate.longitude];
     
-    if (self.textField.text.length > 0) // reminder contains text
+    if (self.textField.text.length > 0 && ![self.textField.text isEqualToString:@"Generic Reminder"]) // reminder contains text
     {
       self.myReminder = [[Reminder alloc] initWithLocation: reminderLocation withText:self.annotation.title withAudio:nil withVideo:nil];
     }
@@ -149,7 +158,7 @@
     else
     {
       // NSLog(@"created an audio reminder: %@", audioData.description);
-      self.myReminder = [[Reminder alloc] initWithLocation: reminderLocation withText:nil withAudio:(NSData*)self.audioFileLocation withVideo:nil];
+      self.myReminder = [[Reminder alloc] initWithLocation: reminderLocation withText:nil withAudio:(NSData*)self.audioData withVideo:nil];
     }
     destinationVC.selectedReminder = self.myReminder;
     

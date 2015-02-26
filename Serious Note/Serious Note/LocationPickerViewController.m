@@ -140,17 +140,17 @@
   // get the first element in the location array
   
   // comment out next line for use on a real device
-  CLLocationCoordinate2D workCoordinate = CLLocationCoordinate2DMake(47.6235481, -122.336212); // Code Fellows location
+  //CLLocationCoordinate2D workCoordinate = CLLocationCoordinate2DMake(47.6235481, -122.336212); // Code Fellows location
   
   // comment out the next two lines for use on a simulator
-  //CLLocation *currLocation = [self.locationManager location];
-  //CLLocationCoordinate2D workCoordinate = currLocation.coordinate;
+  CLLocation *currLocation = [self.locationManager location];
+  CLLocationCoordinate2D workCoordinate = currLocation.coordinate;
   
   MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance (workCoordinate, 1.0 * METERS_PER_MILE, 1.0 *METERS_PER_MILE);
   [self.mapView setRegion:region animated:true];
 
   
-  NSLog(@"latitude: %f and longitude: %f", workCoordinate.latitude, workCoordinate.longitude);
+  //NSLog(@"latitude: %f and longitude: %f", workCoordinate.latitude, workCoordinate.longitude);
 } // locationManager()
 
 // set up the pin as an annotation view
