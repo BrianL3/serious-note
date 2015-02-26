@@ -52,6 +52,7 @@
             break;
         case 1:
             self.messsageTypeLabel.text = @"Location-Based Reminder";
+            break;
         default:
             self.messsageTypeLabel.text = @"MessageType: UNKNOWN";
             break;
