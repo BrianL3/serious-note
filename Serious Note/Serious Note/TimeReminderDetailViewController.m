@@ -106,6 +106,7 @@
             self.myReminder = [[Reminder alloc] initWithTime:self.selectedDate withText:nil withAudio: self.audioData withVideo:nil];
         }
         destinationVC.selectedReminder = self.myReminder;
+        destinationVC.fireDate = self.selectedDate;
         
      // create a new reminder, set the new VC's thing to the new reminder
     }

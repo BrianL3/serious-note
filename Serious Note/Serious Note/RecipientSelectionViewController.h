@@ -12,4 +12,5 @@
 
 @interface RecipientSelectionViewController : UIViewController
 @property (strong, nonatomic) Reminder* selectedReminder;
+@property (strong, nonatomic) NSDate* fireDate;
 @end

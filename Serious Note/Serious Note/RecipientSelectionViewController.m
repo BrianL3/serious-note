@@ -68,6 +68,44 @@
     NSLog(@"The POST button fired.");
 }
 
+//MARK: SCHEDULE A TIMED REMINDER:
+// call when reminder set / done button pressed
+-(void)scheduleReminderNotification: (Reminder*)reminder{
+    UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+    if (!localNotification){
+        return;
+    }
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.dateFormat = @"hh-mm -a";
+    NSDate* date = [dateFormatter dateFromString:[dateFormatter stringFromDate:self.fireDate]];
+
+    [localNotification setFireDate:date];
+    [localNotification setTimeZone:[NSTimeZone defaultTimeZone]];
+    // Setup alert notification
+    [localNotification setAlertBody:[NSString stringWithFormat: @"Reminder: %@", reminder.textContent]];
+    [localNotification setAlertAction:@"Open App"];
+    [localNotification setHasAction:YES];
+
+    //schedule it
+    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+
+    
+}
+/*
+ 
+ //This array maps the alarms uid to the index of the alarm so that we can cancel specific local notifications
+ 
+ NSNumber* uidToStore = [NSNumber numberWithInt:indexOfObject];
+ NSDictionary *userInfo = [NSDictionary dictionaryWithObject:uidToStore forKey:@"notificationID"];
+ localNotification.userInfo = userInfo;
+ NSLog(@"Uid Store in userInfo %@", [localNotification.userInfo objectForKey:@"notificationID"]);
+ 
+ // Schedule the notification
+ [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+ 
+ */
+
+
 /*
 #pragma mark - Navigation
 
