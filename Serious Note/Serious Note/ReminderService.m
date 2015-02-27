@@ -93,6 +93,8 @@
 
 -(void)getReminder: (int)reminderID completionHandler:(void (^)(Reminder *result, NSString *error))completionHandler {
     //our server URL
+
+    
     NSString* serverURLString = self.apiURL;
     
     serverURLString = [serverURLString stringByAppendingString:[NSString stringWithFormat: @"%d",reminderID ]];
@@ -113,7 +115,9 @@
                     NSDictionary* jsonDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
                     if (!error) {
                         NSLog(@"200 Status OK, no error found in serialization");
+                        NSLog(@"The entirety of the jsonDict is: %@", jsonDictionary);
                         Reminder* resultingReminder = [[Reminder alloc] initWithJSON:jsonDictionary];
+                        NSLog(@"The reminder result's reminderID was: %d", resultingReminder.reminderID);
                         completionHandler(resultingReminder, nil);
                     }else{
                         NSLog(@"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            could not serialize the JSON data returned.  Error: %@", error.localizedDescription);

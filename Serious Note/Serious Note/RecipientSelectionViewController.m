@@ -127,8 +127,6 @@
 
     //schedule it
     [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
-
-    
 }
 /*
  
