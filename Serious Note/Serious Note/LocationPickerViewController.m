@@ -10,6 +10,7 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "AddReminderViewController.h"
+#import "ReminderService.h"
 
 @interface LocationPickerViewController () <CLLocationManagerDelegate, MKMapViewDelegate>
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
@@ -188,7 +189,7 @@
 - (void) locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region
 {
   NSLog(@"did enter region");
-  
+    
   UILocalNotification *localNotification = [UILocalNotification new];
   localNotification.alertBody = @"region entered";
   localNotification.alertAction = @"region action";
