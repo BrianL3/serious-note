@@ -94,10 +94,20 @@
   
   for (CLCircularRegion *monitoredRegion in monitoredRegions)
   {
-    //display the region on the map as an annotation
+    //display the region on the map as an annotation, get the annotation text label from the associated reminder
+    
+    int reminderId = (int)monitoredRegion.identifier;
+    __block Reminder *reminder = nil;
+    [[ReminderService sharedService] getReminder:reminderId completionHandler:^(Reminder *result, NSString *error) {
+      if (!error)
+      {
+        reminder = result;
+      }
+    }];
+    
     MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
     annotation.coordinate = monitoredRegion.center;
-    annotation.title = monitoredRegion.identifier;
+    annotation.title = reminder.textContent;
     [self.mapView addAnnotation: annotation];
   } // for monitoredRegion
   
@@ -189,9 +199,37 @@
 - (void) locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region
 {
   NSLog(@"did enter region");
+  
+  int reminderId = (int)region.identifier;
+  __block Reminder *myReminder = nil;
+  [[ReminderService sharedService] getReminder:reminderId completionHandler:^(Reminder *result, NSString *error) {
+    if (!error)
+    {
+      myReminder = result;
+    }
+  }];
     
-  UILocalNotification *localNotification = [UILocalNotification new];
-  localNotification.alertBody = @"region entered";
+  UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+  localNotification.alertBody = myReminder.textContent;
+  
+  switch (myReminder.mediaType) {
+    case 0:{
+      localNotification.alertBody = myReminder.textContent;
+      break;
+    }
+    case 1:{
+      localNotification.alertBody  = @"Reminder Type: Audio";
+      break;
+    }
+    case 2:{
+      localNotification.alertBody  = @"Reminder Type: Video";
+      break;
+    }
+    default:
+      localNotification.alertBody  = @"ReminderType: UNKNOWN";
+      break;
+  } // switch
+  
   localNotification.alertAction = @"region action";
   
   [[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];

@@ -116,7 +116,7 @@
                         Reminder* resultingReminder = [[Reminder alloc] initWithJSON:jsonDictionary];
                         completionHandler(resultingReminder, nil);
                     }else{
-                        NSLog(@"GetReminder could not serialize the JSON data returned.  Error: %@", error.localizedDescription);
+                        NSLog(@"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            could not serialize the JSON data returned.  Error: %@", error.localizedDescription);
                         NSString* errorString = [NSString stringWithFormat:@"GetReminder could not serialize the JSON data returned. Error: %@", error.localizedDescription];
                         completionHandler(nil, errorString);
                     }

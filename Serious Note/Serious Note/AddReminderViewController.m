@@ -152,7 +152,7 @@
     
     if (self.textField.text.length > 0 && ![self.textField.text containsString:@"Generic"]) // reminder contains text
     {
-      self.myReminder = [[Reminder alloc] initWithLocation: reminderLocation withText:self.annotation.title withAudio:nil withVideo:nil];
+      self.myReminder = [[Reminder alloc] initWithLocation: reminderLocation withText:self.textField.text withAudio:nil withVideo:nil];
     }
     
     else
