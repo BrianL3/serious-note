@@ -500,6 +500,66 @@
             </objects>
             <point key="canvasLocation" x="3526" y="456"/>
         </scene>
+        <!--Display Reminder View Controller-->
+        <scene sceneID="PEv-FF-bLL">
+            <objects>
+                <viewController id="OVE-bH-gpg" customClass="DisplayReminderViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GH6-zm-hCc"/>
+                        <viewControllerLayoutGuide type="bottom" id="aIb-jm-TL6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ZL1-N4-760">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CCw-JZ-BRh">
+                                <rect key="frame" x="279" y="161" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QmR-j8-XO9">
+                                <rect key="frame" x="279" y="74" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vhQ-II-5zg">
+                                <rect key="frame" x="279" y="103" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7v-Ct-t15">
+                                <rect key="frame" x="279" y="132" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.66166644509999994" blue="0.68544334780000005" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="CCw-JZ-BRh" firstAttribute="top" secondItem="r7v-Ct-t15" secondAttribute="bottom" constant="8" id="2Ej-oG-Qt0"/>
+                            <constraint firstItem="r7v-Ct-t15" firstAttribute="top" secondItem="vhQ-II-5zg" secondAttribute="bottom" constant="8" id="9l1-Ai-SjM"/>
+                            <constraint firstAttribute="centerX" secondItem="r7v-Ct-t15" secondAttribute="centerX" id="RYb-Jy-8Al"/>
+                            <constraint firstAttribute="centerX" secondItem="vhQ-II-5zg" secondAttribute="centerX" id="RZd-CF-pHz"/>
+                            <constraint firstAttribute="centerX" secondItem="QmR-j8-XO9" secondAttribute="centerX" id="beq-BW-DPJ"/>
+                            <constraint firstAttribute="centerX" secondItem="CCw-JZ-BRh" secondAttribute="centerX" id="kgW-0c-RPd"/>
+                            <constraint firstItem="vhQ-II-5zg" firstAttribute="top" secondItem="QmR-j8-XO9" secondAttribute="bottom" constant="8" id="p9X-A9-GGt"/>
+                            <constraint firstItem="QmR-j8-XO9" firstAttribute="top" secondItem="GH6-zm-hCc" secondAttribute="bottom" constant="54" id="pbM-Km-GHa"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mediaTypeLabel" destination="vhQ-II-5zg" id="rJl-TV-Hi2"/>
+                        <outlet property="messageTypeLabel" destination="QmR-j8-XO9" id="wNs-O1-d3V"/>
+                        <outlet property="reminderIDLabel" destination="CCw-JZ-BRh" id="a61-dP-pxf"/>
+                        <outlet property="textContentLabel" destination="r7v-Ct-t15" id="ddg-Og-1Cc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E27-oQ-KvZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3600" y="1228"/>
+        </scene>
         <!--Tutorial View Controller-->
         <scene sceneID="FGk-zH-jqd">
             <objects>
