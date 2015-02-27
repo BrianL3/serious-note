@@ -101,9 +101,11 @@
         destinationVC = segue.destinationViewController;
         if (self.textView.text.length > 0){
             self.myReminder = [[Reminder alloc] initWithTime:self.selectedDate withText:self.textView.text withAudio: self.audioData withVideo:nil];
+            NSLog(@"Created a text reminder with text: %@", self.myReminder.textContent);
         }else{
-//            NSLog(@"created an audio reminder: @%", audioData.description);
             self.myReminder = [[Reminder alloc] initWithTime:self.selectedDate withText:nil withAudio: self.audioData withVideo:nil];
+            NSLog(@"Created an audio reminder");
+
         }
         destinationVC.selectedReminder = self.myReminder;
         destinationVC.fireDate = self.selectedDate;
