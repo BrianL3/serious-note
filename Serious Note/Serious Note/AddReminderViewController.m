@@ -22,6 +22,7 @@
 @property (strong, nonatomic) NSURL *audioFileLocation;
 @property (strong, nonatomic) NSData *audioData;
 @property (strong, nonatomic) Reminder *myReminder;
+@property (strong, nonatomic) CLCircularRegion *enteredRegion;
 
 @end
 
@@ -137,14 +138,9 @@
       }
       
       // create a 200m-diameter region around the pin
-      CLCircularRegion *region = [[CLCircularRegion alloc] initWithCenter:self.annotation.coordinate radius:200 identifier:self.textField.text];
+      self.enteredRegion = [[CLCircularRegion alloc] initWithCenter:self.annotation.coordinate radius:200 identifier:self.textField.text];
       
-      // start checking to see if user enters region
-      [self.locationManager startMonitoringForRegion:region];
-      
-      // send a notification to any observers that a reminder has been added
-      [[NSNotificationCenter defaultCenter] postNotificationName:@"ReminderAdded" object:self userInfo:@{@"reminder": region, @"title" : self.textField.text}];
-    } // add region to monitored regions
+     } // add region to monitored regions
     
     // segue to the Recipient Selection VC, push reminder
     
@@ -165,6 +161,16 @@
       self.myReminder = [[Reminder alloc] initWithLocation: reminderLocation withText:nil withAudio:(NSData*)self.audioData withVideo:nil];
     }
     destinationVC.selectedReminder = self.myReminder;
+    NSNumber *reminderId = [[NSNumber alloc] initWithInt:self.myReminder.reminderID];
+    //self.enteredRegion.identifier = reminderId.intValue;
+    
+    CLCircularRegion *storedRegion = [[CLCircularRegion alloc] initWithCenter:self.enteredRegion.center radius:self.enteredRegion.radius identifier:reminderId.stringValue];
+        
+    // start checking to see if user enters region
+    [self.locationManager startMonitoringForRegion:storedRegion];
+    
+    // send a notification to any observers that a reminder has been added
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"ReminderAdded" object:self userInfo:@{@"reminder": self.enteredRegion, @"title" : self.textField.text, @"reminderID" : reminderId}];
     
   } // segue LOCATION_CHOOSE_RECIPIENT
 
