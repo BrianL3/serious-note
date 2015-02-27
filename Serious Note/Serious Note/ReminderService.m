@@ -108,11 +108,11 @@
             NSInteger statusCode = httpResponse.statusCode;
             switch (statusCode) {
                 case 200 ... 299:{
-                    NSLog(@"200 Status OK");
                     // serialise the data returned into Reminder object
                     NSError* error;
                     NSDictionary* jsonDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
                     if (!error) {
+                        NSLog(@"200 Status OK, no error found in serialization");
                         Reminder* resultingReminder = [[Reminder alloc] initWithJSON:jsonDictionary];
                         completionHandler(resultingReminder, nil);
                     }else{
