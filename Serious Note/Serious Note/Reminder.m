@@ -71,21 +71,40 @@
 
 //serial a JSON blob into a reminder
 - (instancetype)initWithJSON: (NSDictionary*)jsonDictionary{
+    NSLog(@"the jsonDictionary as received by the initializer is: %@", jsonDictionary);
 
+    NSObject* whatIsThis = jsonDictionary[@"mediaContent"];
+    NSLog(@"the class type of the mediaContent is: %@", whatIsThis.class);
+
+    
+    
     self = [super init];
     if (self) {
-        self.reminderID = (int)jsonDictionary[@"reminderID"];
-        self.userID = (NSInteger)jsonDictionary[@"userID"];
-        self.mediaType = (MediaType)jsonDictionary[@"mediaType"];
-        self.messageType = (MessageType)jsonDictionary[@"messageType"];
-        if (self.messageType == textType) {
-            self.textContent = (NSString*)jsonDictionary[@"textContent"];
-        }
-        if (self.messageType == audioType) {
-            self.audioContent = (NSData*)jsonDictionary[@"mediaContent"];
-        }
+        //casting
+        NSNumber* reminderIDPlaceholder = (NSNumber*)jsonDictionary[@"reminderID"];
+        _reminderID = reminderIDPlaceholder.integerValue;
+        //casting
+        NSNumber* userIDPlaceholder = (NSNumber*)jsonDictionary[@"userID"];
+        self.userID = userIDPlaceholder.integerValue;
+        //casting
+        NSNumber* mediaTypePlaceholder = (NSNumber*)jsonDictionary[@"mediaType"];
+        _mediaType = (MediaType)mediaTypePlaceholder;
+
+        _textContent = (NSString*)jsonDictionary[@"textContent"];
+        _audioContent = (NSData*)jsonDictionary[@"mediaContent"];
     }
     return self;
 }
+/*
+{
+    "__v" = 0;
+    "_id" = 54f0a9f5c5c64b0300da8042;
+    mediaContent = "(null)";
+    mediaType = 0;
+    reminderID = 446751091;
+    textContent = utsiyd;
+    userID = "-1";
+}
+ */
 
 @end
