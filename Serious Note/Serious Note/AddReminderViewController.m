@@ -133,7 +133,7 @@
         // create a unique string to use as a title by appending the current clock time to the word "Generic"
         NSDate* currentTime = [NSDate date];
         int CurrTime = currentTime.timeIntervalSinceReferenceDate;
-        NSString *addOn = [NSString stringWithFormat:@"Genric%d", CurrTime]; // append the time
+        NSString *addOn = [NSString stringWithFormat:@"Generic%d", CurrTime]; // append the time
         self.textField.text = addOn;
       }
       
@@ -150,7 +150,7 @@
     // at what location will the reminder be triggered?
     CLLocation *reminderLocation = [[CLLocation alloc] initWithLatitude:self.annotation.coordinate.latitude longitude:self.annotation.coordinate.longitude];
     
-    if (self.textField.text.length > 0 && ![self.textField.text containsString:@"Generic"]) // reminder contains text
+   if (self.textField.text.length > 0 || ![self.textField.text containsString:@"Generic"]) // reminder contains text
     {
       self.myReminder = [[Reminder alloc] initWithLocation: reminderLocation withText:self.textField.text withAudio:nil withVideo:nil];
     }

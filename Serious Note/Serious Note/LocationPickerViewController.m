@@ -96,7 +96,7 @@
   {
     //display the region on the map as an annotation, get the annotation text label from the associated reminder
     
-    int reminderId = (int)monitoredRegion.identifier;
+    int reminderId = [monitoredRegion.identifier intValue];
     __block Reminder *reminder = nil;
     [[ReminderService sharedService] getReminder:reminderId completionHandler:^(Reminder *result, NSString *error) {
       if (!error)
