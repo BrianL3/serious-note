@@ -37,26 +37,22 @@
 
 //MARK: NAVIGATION  ====================================================================================================================================
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"SHOW_TIME"]){
+    if ([segue.identifier isEqualToString:@"GO_TO_TIME_PICKER"]){
         self.timePickerVC = segue.destinationViewController;
     }
-    if ([segue.identifier isEqualToString:@"SHOW_LOCATION"]) {
+    if ([segue.identifier isEqualToString:@"GO_TO_MAP"]) {
         self.locationPickerVC = segue.destinationViewController;
-    }
-    
-    if ([segue.identifier isEqualToString:@"SLIDE_TO_TIME"]) {
-        self.timePickerVC = segue.destinationViewController;
     }
     
 }
 
 //MARK: BUTTON PRESSES ======================================================================================================================================
 - (IBAction)upButtonPressed:(id)sender {
-    [self performSegueWithIdentifier:@"SLIDE_TO_TIME" sender:self];
+    [self performSegueWithIdentifier:@"GO_TO_TIME_PICKER" sender:self];
 }
 
 - (IBAction)downButtonPressed:(id)sender {
-    [self performSegueWithIdentifier:@"SLIDE_TO_MAP" sender:self];
+    [self performSegueWithIdentifier:@"GO_TO_MAP" sender:self];
 
 }
 
