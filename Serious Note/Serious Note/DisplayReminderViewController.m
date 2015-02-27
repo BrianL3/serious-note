@@ -20,8 +20,39 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
+    if (self.selectedReminder.userID) {
+        self.reminderIDLabel.text = [NSString stringWithFormat: @"ReminderID#: %ld", self.selectedReminder.userID];
+    }
+    
+    switch (self.selectedReminder.mediaType) {
+        case 0:{
+            self.reminderIDLabel.text = self.selectedReminder.textContent;
+            self.mediaTypeLabel.text = @"Reminder Type: Text";
+            break;
+        }
+        case 1:{
+            self.mediaTypeLabel.text = @"Reminder Type: Audio";
+            break;
+        }
+        case 2:{
+            self.mediaTypeLabel.text = @"Reminder Type: Video";
+            break;
+        }
+        default:
+            self.mediaTypeLabel.text = @"ReminderType: UNKNOWN";
+            break;
+    }
+    switch (self.selectedReminder.messageType) {
+        case 0:
+            self.messageTypeLabel.text = @"Time-Based Reminder";
+            break;
+        case 1:
+            self.messageTypeLabel.text = @"Location-Based Reminder";
+            break;
+        default:
+            self.messageTypeLabel.text = @"MessageType: UNKNOWN";
+            break;
+    }}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
