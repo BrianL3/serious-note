@@ -67,6 +67,45 @@
     [[ReminderService sharedService] addReminder:self.selectedReminder];
     NSLog(@"The POST button fired.");
 }
+- (IBAction)getButtonPressed:(id)sender {
+    [[ReminderService sharedService] getReminder:self.selectedReminder.reminderID completionHandler:^(Reminder *result, NSString *error) {
+        self.view.backgroundColor = [UIColor colorWithRed:2/255 green:34/25 blue:215/255 alpha:1.0];
+        self.selectedReminder = result;
+        if (self.selectedReminder.userID) {
+            self.userLabel.text = [NSString stringWithFormat: @"UserPhone#: %ld", self.selectedReminder.userID];
+        }
+        
+        switch (self.selectedReminder.mediaType) {
+            case 0:{
+                self.textLabel.text = self.selectedReminder.textContent;
+                self.mediaTypeLabel.text = @"Reminder Type: Text";
+                break;
+            }
+            case 1:{
+                self.mediaTypeLabel.text = @"Reminder Type: Audio";
+                break;
+            }
+            case 2:{
+                self.mediaTypeLabel.text = @"Reminder Type: Video";
+                break;
+            }
+            default:
+                self.mediaTypeLabel.text = @"ReminderType: UNKNOWN";
+                break;
+        }
+        switch (self.selectedReminder.messageType) {
+            case 0:
+                self.messsageTypeLabel.text = @"Time-Based Reminder";
+                break;
+            case 1:
+                self.messsageTypeLabel.text = @"Location-Based Reminder";
+                break;
+            default:
+                self.messsageTypeLabel.text = @"MessageType: UNKNOWN";
+                break;
+        }
+    }];
+}
 
 //MARK: SCHEDULE A TIMED REMINDER:
 // call when reminder set / done button pressed
