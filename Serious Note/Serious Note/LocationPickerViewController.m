@@ -102,14 +102,14 @@
       if (!error)
       {
         reminder = result;
+        MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
+        annotation.coordinate = monitoredRegion.center;
+        annotation.title = reminder.textContent;
+        [self.mapView addAnnotation: annotation];
+
       }
     }];
-    
-    MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
-    annotation.coordinate = monitoredRegion.center;
-    annotation.title = reminder.textContent;
-    [self.mapView addAnnotation: annotation];
-  } // for monitoredRegion
+    } // for monitoredRegion
   
 } // viewDidAppear()
 
@@ -151,13 +151,13 @@
   // get the first element in the location array
   
   // comment out next line for use on a real device
-  //CLLocationCoordinate2D workCoordinate = CLLocationCoordinate2DMake(47.6235481, -122.336212); // Code Fellows location
+  CLLocationCoordinate2D workCoordinate = CLLocationCoordinate2DMake(47.6235481, -122.336212); // Code Fellows location
   
   // comment out the next two lines for use on a simulator
-  CLLocation *currLocation = [self.locationManager location];
-  CLLocationCoordinate2D workCoordinate = currLocation.coordinate;
+  //CLLocation *currLocation = [self.locationManager location];
+  //CLLocationCoordinate2D workCoordinate = currLocation.coordinate;
   
-  MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance (workCoordinate, 1.0 * METERS_PER_MILE, 1.0 *METERS_PER_MILE);
+  MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance (workCoordinate, 0.5 * METERS_PER_MILE, 0.5 * METERS_PER_MILE);
   [self.mapView setRegion:region animated:true];
 
   
